@@ -1,0 +1,433 @@
+23:38:54.585506 IP 10.10.100.135.47512 > vm-udia-dojot.1883: Flags [S], seq 2680046751, win 29200, options [mss 1460,sackOK,TS val 409645250 ecr 0,nop,wscale 6], length 0
+23:38:54.585630 IP 10.10.100.135.47512 > 172.19.0.25.1883: Flags [S], seq 2680046751, win 29200, options [mss 1460,sackOK,TS val 409645250 ecr 0,nop,wscale 6], length 0
+23:38:54.585641 IP 10.10.100.135.47512 > 172.19.0.25.1883: Flags [S], seq 2680046751, win 29200, options [mss 1460,sackOK,TS val 409645250 ecr 0,nop,wscale 6], length 0
+23:38:54.585743 IP 172.19.0.25.1883 > 10.10.100.135.47512: Flags [S.], seq 794155195, ack 2680046752, win 28960, options [mss 1460,sackOK,TS val 412136167 ecr 409645250,nop,wscale 7], length 0
+23:38:54.585755 IP 172.19.0.25.1883 > 10.10.100.135.47512: Flags [S.], seq 794155195, ack 2680046752, win 28960, options [mss 1460,sackOK,TS val 412136167 ecr 409645250,nop,wscale 7], length 0
+23:38:54.585770 IP vm-udia-dojot.1883 > 10.10.100.135.47512: Flags [S.], seq 794155195, ack 2680046752, win 28960, options [mss 1460,sackOK,TS val 412136167 ecr 409645250,nop,wscale 7], length 0
+23:38:54.599399 IP 10.10.100.135.47512 > vm-udia-dojot.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 409645254 ecr 412136167], length 0
+23:38:54.599473 IP 10.10.100.135.47512 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 409645254 ecr 412136167], length 0
+23:38:54.599480 IP 10.10.100.135.47512 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 409645254 ecr 412136167], length 0
+23:38:54.599485 IP 10.10.100.135.47512 > vm-udia-dojot.1883: Flags [P.], seq 1:40, ack 1, win 457, options [nop,nop,TS val 409645254 ecr 412136167], length 39
+23:38:54.599522 IP 10.10.100.135.47512 > 172.19.0.25.1883: Flags [P.], seq 1:40, ack 1, win 457, options [nop,nop,TS val 409645254 ecr 412136167], length 39
+23:38:54.599525 IP 10.10.100.135.47512 > 172.19.0.25.1883: Flags [P.], seq 1:40, ack 1, win 457, options [nop,nop,TS val 409645254 ecr 412136167], length 39
+23:38:54.599682 IP 172.19.0.25.1883 > 10.10.100.135.47512: Flags [.], ack 40, win 227, options [nop,nop,TS val 412136170 ecr 409645254], length 0
+23:38:54.599716 IP 172.19.0.25.1883 > 10.10.100.135.47512: Flags [.], ack 40, win 227, options [nop,nop,TS val 412136170 ecr 409645254], length 0
+23:38:54.599729 IP vm-udia-dojot.1883 > 10.10.100.135.47512: Flags [.], ack 40, win 227, options [nop,nop,TS val 412136170 ecr 409645254], length 0
+23:38:54.606521 IP 172.19.0.25.1883 > 10.10.100.135.47512: Flags [P.], seq 1:5, ack 40, win 227, options [nop,nop,TS val 412136172 ecr 409645254], length 4
+23:38:54.606530 IP 172.19.0.25.1883 > 10.10.100.135.47512: Flags [P.], seq 1:5, ack 40, win 227, options [nop,nop,TS val 412136172 ecr 409645254], length 4
+23:38:54.606548 IP vm-udia-dojot.1883 > 10.10.100.135.47512: Flags [P.], seq 1:5, ack 40, win 227, options [nop,nop,TS val 412136172 ecr 409645254], length 4
+23:38:54.620382 IP 10.10.100.135.47512 > vm-udia-dojot.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 409645259 ecr 412136172], length 0
+23:38:54.620425 IP 10.10.100.135.47512 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 409645259 ecr 412136172], length 0
+23:38:54.620432 IP 10.10.100.135.47512 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 409645259 ecr 412136172], length 0
+23:38:54.620437 IP 10.10.100.135.47512 > vm-udia-dojot.1883: Flags [P.], seq 40:422, ack 5, win 457, options [nop,nop,TS val 409645259 ecr 412136172], length 382
+23:38:54.620444 IP 10.10.100.135.47512 > 172.19.0.25.1883: Flags [P.], seq 40:422, ack 5, win 457, options [nop,nop,TS val 409645259 ecr 412136172], length 382
+23:38:54.620445 IP 10.10.100.135.47512 > 172.19.0.25.1883: Flags [P.], seq 40:422, ack 5, win 457, options [nop,nop,TS val 409645259 ecr 412136172], length 382
+23:38:54.620447 IP 10.10.100.135.47512 > vm-udia-dojot.1883: Flags [FP.], seq 422:424, ack 5, win 457, options [nop,nop,TS val 409645259 ecr 412136172], length 2
+23:38:54.620454 IP 10.10.100.135.47512 > 172.19.0.25.1883: Flags [FP.], seq 422:424, ack 5, win 457, options [nop,nop,TS val 409645259 ecr 412136172], length 2
+23:38:54.620455 IP 10.10.100.135.47512 > 172.19.0.25.1883: Flags [FP.], seq 422:424, ack 5, win 457, options [nop,nop,TS val 409645259 ecr 412136172], length 2
+23:38:54.620680 IP 172.19.0.25.1883 > 10.10.100.135.47512: Flags [.], ack 425, win 235, options [nop,nop,TS val 412136175 ecr 409645259], length 0
+23:38:54.620689 IP 172.19.0.25.1883 > 10.10.100.135.47512: Flags [.], ack 425, win 235, options [nop,nop,TS val 412136175 ecr 409645259], length 0
+23:38:54.620703 IP vm-udia-dojot.1883 > 10.10.100.135.47512: Flags [.], ack 425, win 235, options [nop,nop,TS val 412136175 ecr 409645259], length 0
+23:38:54.626634 IP 172.19.0.25.1883 > 10.10.100.135.47512: Flags [F.], seq 5, ack 425, win 235, options [nop,nop,TS val 412136177 ecr 409645259], length 0
+23:38:54.626641 IP 172.19.0.25.1883 > 10.10.100.135.47512: Flags [F.], seq 5, ack 425, win 235, options [nop,nop,TS val 412136177 ecr 409645259], length 0
+23:38:54.626657 IP vm-udia-dojot.1883 > 10.10.100.135.47512: Flags [F.], seq 5, ack 425, win 235, options [nop,nop,TS val 412136177 ecr 409645259], length 0
+23:38:54.640029 IP 10.10.100.135.47512 > vm-udia-dojot.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 409645264 ecr 412136177], length 0
+23:38:54.640062 IP 10.10.100.135.47512 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 409645264 ecr 412136177], length 0
+23:38:54.640067 IP 10.10.100.135.47512 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 409645264 ecr 412136177], length 0
+23:38:55.522083 IP vm-brumadinho-mongodb.38730 > vm-udia-dojot.1883: Flags [S], seq 942607342, win 29200, options [mss 1460,sackOK,TS val 410910062 ecr 0,nop,wscale 6], length 0
+23:38:55.522127 IP vm-brumadinho-mongodb.38730 > 172.19.0.25.1883: Flags [S], seq 942607342, win 29200, options [mss 1460,sackOK,TS val 410910062 ecr 0,nop,wscale 6], length 0
+23:38:55.522132 IP vm-brumadinho-mongodb.38730 > 172.19.0.25.1883: Flags [S], seq 942607342, win 29200, options [mss 1460,sackOK,TS val 410910062 ecr 0,nop,wscale 6], length 0
+23:38:55.522170 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38730: Flags [S.], seq 610669975, ack 942607343, win 28960, options [mss 1460,sackOK,TS val 412136401 ecr 410910062,nop,wscale 7], length 0
+23:38:55.522174 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38730: Flags [S.], seq 610669975, ack 942607343, win 28960, options [mss 1460,sackOK,TS val 412136401 ecr 410910062,nop,wscale 7], length 0
+23:38:55.522180 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38730: Flags [S.], seq 610669975, ack 942607343, win 28960, options [mss 1460,sackOK,TS val 412136401 ecr 410910062,nop,wscale 7], length 0
+23:38:55.536083 IP vm-brumadinho-mongodb.38730 > vm-udia-dojot.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 410910065 ecr 412136401], length 0
+23:38:55.536115 IP vm-brumadinho-mongodb.38730 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 410910065 ecr 412136401], length 0
+23:38:55.536118 IP vm-brumadinho-mongodb.38730 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 410910065 ecr 412136401], length 0
+23:38:55.536120 IP vm-brumadinho-mongodb.38730 > vm-udia-dojot.1883: Flags [P.], seq 1:37, ack 1, win 457, options [nop,nop,TS val 410910065 ecr 412136401], length 36
+23:38:55.536139 IP vm-brumadinho-mongodb.38730 > 172.19.0.25.1883: Flags [P.], seq 1:37, ack 1, win 457, options [nop,nop,TS val 410910065 ecr 412136401], length 36
+23:38:55.536140 IP vm-brumadinho-mongodb.38730 > 172.19.0.25.1883: Flags [P.], seq 1:37, ack 1, win 457, options [nop,nop,TS val 410910065 ecr 412136401], length 36
+23:38:55.536212 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38730: Flags [.], ack 37, win 227, options [nop,nop,TS val 412136404 ecr 410910065], length 0
+23:38:55.536217 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38730: Flags [.], ack 37, win 227, options [nop,nop,TS val 412136404 ecr 410910065], length 0
+23:38:55.536223 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38730: Flags [.], ack 37, win 227, options [nop,nop,TS val 412136404 ecr 410910065], length 0
+23:38:55.538200 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38730: Flags [P.], seq 1:5, ack 37, win 227, options [nop,nop,TS val 412136405 ecr 410910065], length 4
+23:38:55.538206 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38730: Flags [P.], seq 1:5, ack 37, win 227, options [nop,nop,TS val 412136405 ecr 410910065], length 4
+23:38:55.538221 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38730: Flags [P.], seq 1:5, ack 37, win 227, options [nop,nop,TS val 412136405 ecr 410910065], length 4
+23:38:55.553070 IP vm-brumadinho-mongodb.38730 > vm-udia-dojot.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 410910069 ecr 412136405], length 0
+23:38:55.553101 IP vm-brumadinho-mongodb.38730 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 410910069 ecr 412136405], length 0
+23:38:55.553106 IP vm-brumadinho-mongodb.38730 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 410910069 ecr 412136405], length 0
+23:38:55.553109 IP vm-brumadinho-mongodb.38730 > vm-udia-dojot.1883: Flags [P.], seq 37:419, ack 5, win 457, options [nop,nop,TS val 410910069 ecr 412136405], length 382
+23:38:55.553113 IP vm-brumadinho-mongodb.38730 > 172.19.0.25.1883: Flags [P.], seq 37:419, ack 5, win 457, options [nop,nop,TS val 410910069 ecr 412136405], length 382
+23:38:55.553113 IP vm-brumadinho-mongodb.38730 > 172.19.0.25.1883: Flags [P.], seq 37:419, ack 5, win 457, options [nop,nop,TS val 410910069 ecr 412136405], length 382
+23:38:55.553114 IP vm-brumadinho-mongodb.38730 > vm-udia-dojot.1883: Flags [FP.], seq 419:421, ack 5, win 457, options [nop,nop,TS val 410910069 ecr 412136405], length 2
+23:38:55.553118 IP vm-brumadinho-mongodb.38730 > 172.19.0.25.1883: Flags [FP.], seq 419:421, ack 5, win 457, options [nop,nop,TS val 410910069 ecr 412136405], length 2
+23:38:55.553119 IP vm-brumadinho-mongodb.38730 > 172.19.0.25.1883: Flags [FP.], seq 419:421, ack 5, win 457, options [nop,nop,TS val 410910069 ecr 412136405], length 2
+23:38:55.553326 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38730: Flags [.], ack 422, win 235, options [nop,nop,TS val 412136409 ecr 410910069], length 0
+23:38:55.553333 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38730: Flags [.], ack 422, win 235, options [nop,nop,TS val 412136409 ecr 410910069], length 0
+23:38:55.553342 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38730: Flags [.], ack 422, win 235, options [nop,nop,TS val 412136409 ecr 410910069], length 0
+23:38:55.555186 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38730: Flags [F.], seq 5, ack 422, win 235, options [nop,nop,TS val 412136409 ecr 410910069], length 0
+23:38:55.555191 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38730: Flags [F.], seq 5, ack 422, win 235, options [nop,nop,TS val 412136409 ecr 410910069], length 0
+23:38:55.555200 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38730: Flags [F.], seq 5, ack 422, win 235, options [nop,nop,TS val 412136409 ecr 410910069], length 0
+23:38:55.568879 IP vm-brumadinho-mongodb.38730 > vm-udia-dojot.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 410910073 ecr 412136409], length 0
+23:38:55.568921 IP vm-brumadinho-mongodb.38730 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 410910073 ecr 412136409], length 0
+23:38:55.568924 IP vm-brumadinho-mongodb.38730 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 410910073 ecr 412136409], length 0
+23:38:55.676272 IP 10.10.100.135.47514 > vm-udia-dojot.1883: Flags [S], seq 2526645930, win 29200, options [mss 1460,sackOK,TS val 409645523 ecr 0,nop,wscale 6], length 0
+23:38:55.676323 IP 10.10.100.135.47514 > 172.19.0.25.1883: Flags [S], seq 2526645930, win 29200, options [mss 1460,sackOK,TS val 409645523 ecr 0,nop,wscale 6], length 0
+23:38:55.676329 IP 10.10.100.135.47514 > 172.19.0.25.1883: Flags [S], seq 2526645930, win 29200, options [mss 1460,sackOK,TS val 409645523 ecr 0,nop,wscale 6], length 0
+23:38:55.676377 IP 172.19.0.25.1883 > 10.10.100.135.47514: Flags [S.], seq 267668260, ack 2526645931, win 28960, options [mss 1460,sackOK,TS val 412136439 ecr 409645523,nop,wscale 7], length 0
+23:38:55.676384 IP 172.19.0.25.1883 > 10.10.100.135.47514: Flags [S.], seq 267668260, ack 2526645931, win 28960, options [mss 1460,sackOK,TS val 412136439 ecr 409645523,nop,wscale 7], length 0
+23:38:55.676392 IP vm-udia-dojot.1883 > 10.10.100.135.47514: Flags [S.], seq 267668260, ack 2526645931, win 28960, options [mss 1460,sackOK,TS val 412136439 ecr 409645523,nop,wscale 7], length 0
+23:38:55.690835 IP 10.10.100.135.47514 > vm-udia-dojot.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 409645527 ecr 412136439], length 0
+23:38:55.690858 IP 10.10.100.135.47514 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 409645527 ecr 412136439], length 0
+23:38:55.690862 IP 10.10.100.135.47514 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 409645527 ecr 412136439], length 0
+23:38:55.690864 IP 10.10.100.135.47514 > vm-udia-dojot.1883: Flags [P.], seq 1:40, ack 1, win 457, options [nop,nop,TS val 409645527 ecr 412136439], length 39
+23:38:55.690868 IP 10.10.100.135.47514 > 172.19.0.25.1883: Flags [P.], seq 1:40, ack 1, win 457, options [nop,nop,TS val 409645527 ecr 412136439], length 39
+23:38:55.690868 IP 10.10.100.135.47514 > 172.19.0.25.1883: Flags [P.], seq 1:40, ack 1, win 457, options [nop,nop,TS val 409645527 ecr 412136439], length 39
+23:38:55.690907 IP 172.19.0.25.1883 > 10.10.100.135.47514: Flags [.], ack 40, win 227, options [nop,nop,TS val 412136443 ecr 409645527], length 0
+23:38:55.690910 IP 172.19.0.25.1883 > 10.10.100.135.47514: Flags [.], ack 40, win 227, options [nop,nop,TS val 412136443 ecr 409645527], length 0
+23:38:55.690915 IP vm-udia-dojot.1883 > 10.10.100.135.47514: Flags [.], ack 40, win 227, options [nop,nop,TS val 412136443 ecr 409645527], length 0
+23:38:55.697037 IP 172.19.0.25.1883 > 10.10.100.135.47514: Flags [P.], seq 1:5, ack 40, win 227, options [nop,nop,TS val 412136444 ecr 409645527], length 4
+23:38:55.697044 IP 172.19.0.25.1883 > 10.10.100.135.47514: Flags [P.], seq 1:5, ack 40, win 227, options [nop,nop,TS val 412136444 ecr 409645527], length 4
+23:38:55.697057 IP vm-udia-dojot.1883 > 10.10.100.135.47514: Flags [P.], seq 1:5, ack 40, win 227, options [nop,nop,TS val 412136444 ecr 409645527], length 4
+23:38:55.710934 IP 10.10.100.135.47514 > vm-udia-dojot.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 409645532 ecr 412136444], length 0
+23:38:55.710963 IP 10.10.100.135.47514 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 409645532 ecr 412136444], length 0
+23:38:55.710968 IP 10.10.100.135.47514 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 409645532 ecr 412136444], length 0
+23:38:55.710971 IP 10.10.100.135.47514 > vm-udia-dojot.1883: Flags [P.], seq 40:455, ack 5, win 457, options [nop,nop,TS val 409645532 ecr 412136444], length 415
+23:38:55.710977 IP 10.10.100.135.47514 > 172.19.0.25.1883: Flags [P.], seq 40:455, ack 5, win 457, options [nop,nop,TS val 409645532 ecr 412136444], length 415
+23:38:55.710978 IP 10.10.100.135.47514 > 172.19.0.25.1883: Flags [P.], seq 40:455, ack 5, win 457, options [nop,nop,TS val 409645532 ecr 412136444], length 415
+23:38:55.710980 IP 10.10.100.135.47514 > vm-udia-dojot.1883: Flags [FP.], seq 455:457, ack 5, win 457, options [nop,nop,TS val 409645532 ecr 412136444], length 2
+23:38:55.710985 IP 10.10.100.135.47514 > 172.19.0.25.1883: Flags [FP.], seq 455:457, ack 5, win 457, options [nop,nop,TS val 409645532 ecr 412136444], length 2
+23:38:55.710986 IP 10.10.100.135.47514 > 172.19.0.25.1883: Flags [FP.], seq 455:457, ack 5, win 457, options [nop,nop,TS val 409645532 ecr 412136444], length 2
+23:38:55.716273 IP 172.19.0.25.1883 > 10.10.100.135.47514: Flags [.], ack 458, win 235, options [nop,nop,TS val 412136449 ecr 409645532], length 0
+23:38:55.716283 IP 172.19.0.25.1883 > 10.10.100.135.47514: Flags [.], ack 458, win 235, options [nop,nop,TS val 412136449 ecr 409645532], length 0
+23:38:55.716300 IP vm-udia-dojot.1883 > 10.10.100.135.47514: Flags [.], ack 458, win 235, options [nop,nop,TS val 412136449 ecr 409645532], length 0
+23:38:55.732059 IP 172.19.0.25.1883 > 10.10.100.135.47514: Flags [F.], seq 5, ack 458, win 235, options [nop,nop,TS val 412136453 ecr 409645532], length 0
+23:38:55.732066 IP 172.19.0.25.1883 > 10.10.100.135.47514: Flags [F.], seq 5, ack 458, win 235, options [nop,nop,TS val 412136453 ecr 409645532], length 0
+23:38:55.732080 IP vm-udia-dojot.1883 > 10.10.100.135.47514: Flags [F.], seq 5, ack 458, win 235, options [nop,nop,TS val 412136453 ecr 409645532], length 0
+23:38:55.745614 IP 10.10.100.135.47514 > vm-udia-dojot.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 409645540 ecr 412136453], length 0
+23:38:55.745655 IP 10.10.100.135.47514 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 409645540 ecr 412136453], length 0
+23:38:55.745659 IP 10.10.100.135.47514 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 409645540 ecr 412136453], length 0
+23:38:56.563000 IP vm-brumadinho-mongodb.38732 > vm-udia-dojot.1883: Flags [S], seq 3941334866, win 29200, options [mss 1460,sackOK,TS val 410910322 ecr 0,nop,wscale 6], length 0
+23:38:56.563053 IP vm-brumadinho-mongodb.38732 > 172.19.0.25.1883: Flags [S], seq 3941334866, win 29200, options [mss 1460,sackOK,TS val 410910322 ecr 0,nop,wscale 6], length 0
+23:38:56.563059 IP vm-brumadinho-mongodb.38732 > 172.19.0.25.1883: Flags [S], seq 3941334866, win 29200, options [mss 1460,sackOK,TS val 410910322 ecr 0,nop,wscale 6], length 0
+23:38:56.563108 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38732: Flags [S.], seq 2221643713, ack 3941334867, win 28960, options [mss 1460,sackOK,TS val 412136661 ecr 410910322,nop,wscale 7], length 0
+23:38:56.563114 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38732: Flags [S.], seq 2221643713, ack 3941334867, win 28960, options [mss 1460,sackOK,TS val 412136661 ecr 410910322,nop,wscale 7], length 0
+23:38:56.563122 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38732: Flags [S.], seq 2221643713, ack 3941334867, win 28960, options [mss 1460,sackOK,TS val 412136661 ecr 410910322,nop,wscale 7], length 0
+23:38:56.577063 IP vm-brumadinho-mongodb.38732 > vm-udia-dojot.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 410910325 ecr 412136661], length 0
+23:38:56.577088 IP vm-brumadinho-mongodb.38732 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 410910325 ecr 412136661], length 0
+23:38:56.577093 IP vm-brumadinho-mongodb.38732 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 410910325 ecr 412136661], length 0
+23:38:56.577096 IP vm-brumadinho-mongodb.38732 > vm-udia-dojot.1883: Flags [P.], seq 1:37, ack 1, win 457, options [nop,nop,TS val 410910325 ecr 412136661], length 36
+23:38:56.577101 IP vm-brumadinho-mongodb.38732 > 172.19.0.25.1883: Flags [P.], seq 1:37, ack 1, win 457, options [nop,nop,TS val 410910325 ecr 412136661], length 36
+23:38:56.577102 IP vm-brumadinho-mongodb.38732 > 172.19.0.25.1883: Flags [P.], seq 1:37, ack 1, win 457, options [nop,nop,TS val 410910325 ecr 412136661], length 36
+23:38:56.577188 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38732: Flags [.], ack 37, win 227, options [nop,nop,TS val 412136665 ecr 410910325], length 0
+23:38:56.577195 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38732: Flags [.], ack 37, win 227, options [nop,nop,TS val 412136665 ecr 410910325], length 0
+23:38:56.577204 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38732: Flags [.], ack 37, win 227, options [nop,nop,TS val 412136665 ecr 410910325], length 0
+23:38:56.583207 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38732: Flags [P.], seq 1:5, ack 37, win 227, options [nop,nop,TS val 412136666 ecr 410910325], length 4
+23:38:56.583214 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38732: Flags [P.], seq 1:5, ack 37, win 227, options [nop,nop,TS val 412136666 ecr 410910325], length 4
+23:38:56.583230 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38732: Flags [P.], seq 1:5, ack 37, win 227, options [nop,nop,TS val 412136666 ecr 410910325], length 4
+23:38:56.596883 IP vm-brumadinho-mongodb.38732 > vm-udia-dojot.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 410910330 ecr 412136666], length 0
+23:38:56.596917 IP vm-brumadinho-mongodb.38732 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 410910330 ecr 412136666], length 0
+23:38:56.596923 IP vm-brumadinho-mongodb.38732 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 410910330 ecr 412136666], length 0
+23:38:56.596928 IP vm-brumadinho-mongodb.38732 > vm-udia-dojot.1883: Flags [P.], seq 37:452, ack 5, win 457, options [nop,nop,TS val 410910330 ecr 412136666], length 415
+23:38:56.596936 IP vm-brumadinho-mongodb.38732 > 172.19.0.25.1883: Flags [P.], seq 37:452, ack 5, win 457, options [nop,nop,TS val 410910330 ecr 412136666], length 415
+23:38:56.596938 IP vm-brumadinho-mongodb.38732 > 172.19.0.25.1883: Flags [P.], seq 37:452, ack 5, win 457, options [nop,nop,TS val 410910330 ecr 412136666], length 415
+23:38:56.596941 IP vm-brumadinho-mongodb.38732 > vm-udia-dojot.1883: Flags [FP.], seq 452:454, ack 5, win 457, options [nop,nop,TS val 410910330 ecr 412136666], length 2
+23:38:56.596950 IP vm-brumadinho-mongodb.38732 > 172.19.0.25.1883: Flags [FP.], seq 452:454, ack 5, win 457, options [nop,nop,TS val 410910330 ecr 412136666], length 2
+23:38:56.596951 IP vm-brumadinho-mongodb.38732 > 172.19.0.25.1883: Flags [FP.], seq 452:454, ack 5, win 457, options [nop,nop,TS val 410910330 ecr 412136666], length 2
+23:38:56.597216 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38732: Flags [.], ack 455, win 235, options [nop,nop,TS val 412136669 ecr 410910330], length 0
+23:38:56.597225 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38732: Flags [.], ack 455, win 235, options [nop,nop,TS val 412136669 ecr 410910330], length 0
+23:38:56.597239 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38732: Flags [.], ack 455, win 235, options [nop,nop,TS val 412136669 ecr 410910330], length 0
+23:38:56.600179 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38732: Flags [F.], seq 5, ack 455, win 235, options [nop,nop,TS val 412136670 ecr 410910330], length 0
+23:38:56.600186 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38732: Flags [F.], seq 5, ack 455, win 235, options [nop,nop,TS val 412136670 ecr 410910330], length 0
+23:38:56.600202 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38732: Flags [F.], seq 5, ack 455, win 235, options [nop,nop,TS val 412136670 ecr 410910330], length 0
+23:38:56.613948 IP vm-brumadinho-mongodb.38732 > vm-udia-dojot.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 410910335 ecr 412136670], length 0
+23:38:56.613994 IP vm-brumadinho-mongodb.38732 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 410910335 ecr 412136670], length 0
+23:38:56.613998 IP vm-brumadinho-mongodb.38732 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 410910335 ecr 412136670], length 0
+23:38:56.748471 IP 10.10.100.135.47516 > vm-udia-dojot.1883: Flags [S], seq 750821146, win 29200, options [mss 1460,sackOK,TS val 409645791 ecr 0,nop,wscale 6], length 0
+23:38:56.748505 IP 10.10.100.135.47516 > 172.19.0.25.1883: Flags [S], seq 750821146, win 29200, options [mss 1460,sackOK,TS val 409645791 ecr 0,nop,wscale 6], length 0
+23:38:56.748508 IP 10.10.100.135.47516 > 172.19.0.25.1883: Flags [S], seq 750821146, win 29200, options [mss 1460,sackOK,TS val 409645791 ecr 0,nop,wscale 6], length 0
+23:38:56.748542 IP 172.19.0.25.1883 > 10.10.100.135.47516: Flags [S.], seq 4027640978, ack 750821147, win 28960, options [mss 1460,sackOK,TS val 412136707 ecr 409645791,nop,wscale 7], length 0
+23:38:56.748545 IP 172.19.0.25.1883 > 10.10.100.135.47516: Flags [S.], seq 4027640978, ack 750821147, win 28960, options [mss 1460,sackOK,TS val 412136707 ecr 409645791,nop,wscale 7], length 0
+23:38:56.748551 IP vm-udia-dojot.1883 > 10.10.100.135.47516: Flags [S.], seq 4027640978, ack 750821147, win 28960, options [mss 1460,sackOK,TS val 412136707 ecr 409645791,nop,wscale 7], length 0
+23:38:56.763463 IP 10.10.100.135.47516 > vm-udia-dojot.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 409645795 ecr 412136707], length 0
+23:38:56.763525 IP 10.10.100.135.47516 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 409645795 ecr 412136707], length 0
+23:38:56.763529 IP 10.10.100.135.47516 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 409645795 ecr 412136707], length 0
+23:38:56.763534 IP 10.10.100.135.47516 > vm-udia-dojot.1883: Flags [P.], seq 1:40, ack 1, win 457, options [nop,nop,TS val 409645795 ecr 412136707], length 39
+23:38:56.763540 IP 10.10.100.135.47516 > 172.19.0.25.1883: Flags [P.], seq 1:40, ack 1, win 457, options [nop,nop,TS val 409645795 ecr 412136707], length 39
+23:38:56.763541 IP 10.10.100.135.47516 > 172.19.0.25.1883: Flags [P.], seq 1:40, ack 1, win 457, options [nop,nop,TS val 409645795 ecr 412136707], length 39
+23:38:56.763615 IP 172.19.0.25.1883 > 10.10.100.135.47516: Flags [.], ack 40, win 227, options [nop,nop,TS val 412136711 ecr 409645795], length 0
+23:38:56.763621 IP 172.19.0.25.1883 > 10.10.100.135.47516: Flags [.], ack 40, win 227, options [nop,nop,TS val 412136711 ecr 409645795], length 0
+23:38:56.763630 IP vm-udia-dojot.1883 > 10.10.100.135.47516: Flags [.], ack 40, win 227, options [nop,nop,TS val 412136711 ecr 409645795], length 0
+23:38:56.787755 IP 172.19.0.25.1883 > 10.10.100.135.47516: Flags [P.], seq 1:5, ack 40, win 227, options [nop,nop,TS val 412136717 ecr 409645795], length 4
+23:38:56.787763 IP 172.19.0.25.1883 > 10.10.100.135.47516: Flags [P.], seq 1:5, ack 40, win 227, options [nop,nop,TS val 412136717 ecr 409645795], length 4
+23:38:56.787782 IP vm-udia-dojot.1883 > 10.10.100.135.47516: Flags [P.], seq 1:5, ack 40, win 227, options [nop,nop,TS val 412136717 ecr 409645795], length 4
+23:38:56.801831 IP 10.10.100.135.47516 > vm-udia-dojot.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 409645804 ecr 412136717], length 0
+23:38:56.801855 IP 10.10.100.135.47516 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 409645804 ecr 412136717], length 0
+23:38:56.801860 IP 10.10.100.135.47516 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 409645804 ecr 412136717], length 0
+23:38:56.801864 IP 10.10.100.135.47516 > vm-udia-dojot.1883: Flags [P.], seq 40:455, ack 5, win 457, options [nop,nop,TS val 409645804 ecr 412136717], length 415
+23:38:56.801869 IP 10.10.100.135.47516 > 172.19.0.25.1883: Flags [P.], seq 40:455, ack 5, win 457, options [nop,nop,TS val 409645804 ecr 412136717], length 415
+23:38:56.801870 IP 10.10.100.135.47516 > 172.19.0.25.1883: Flags [P.], seq 40:455, ack 5, win 457, options [nop,nop,TS val 409645804 ecr 412136717], length 415
+23:38:56.801872 IP 10.10.100.135.47516 > vm-udia-dojot.1883: Flags [FP.], seq 455:457, ack 5, win 457, options [nop,nop,TS val 409645804 ecr 412136717], length 2
+23:38:56.801878 IP 10.10.100.135.47516 > 172.19.0.25.1883: Flags [FP.], seq 455:457, ack 5, win 457, options [nop,nop,TS val 409645804 ecr 412136717], length 2
+23:38:56.801879 IP 10.10.100.135.47516 > 172.19.0.25.1883: Flags [FP.], seq 455:457, ack 5, win 457, options [nop,nop,TS val 409645804 ecr 412136717], length 2
+23:38:56.802522 IP 172.19.0.25.1883 > 10.10.100.135.47516: Flags [.], ack 458, win 235, options [nop,nop,TS val 412136721 ecr 409645804], length 0
+23:38:56.802533 IP 172.19.0.25.1883 > 10.10.100.135.47516: Flags [.], ack 458, win 235, options [nop,nop,TS val 412136721 ecr 409645804], length 0
+23:38:56.802633 IP vm-udia-dojot.1883 > 10.10.100.135.47516: Flags [.], ack 458, win 235, options [nop,nop,TS val 412136721 ecr 409645804], length 0
+23:38:56.807794 IP 172.19.0.25.1883 > 10.10.100.135.47516: Flags [F.], seq 5, ack 458, win 235, options [nop,nop,TS val 412136722 ecr 409645804], length 0
+23:38:56.807800 IP 172.19.0.25.1883 > 10.10.100.135.47516: Flags [F.], seq 5, ack 458, win 235, options [nop,nop,TS val 412136722 ecr 409645804], length 0
+23:38:56.807814 IP vm-udia-dojot.1883 > 10.10.100.135.47516: Flags [F.], seq 5, ack 458, win 235, options [nop,nop,TS val 412136722 ecr 409645804], length 0
+23:38:56.822672 IP 10.10.100.135.47516 > vm-udia-dojot.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 409645809 ecr 412136722], length 0
+23:38:56.822729 IP 10.10.100.135.47516 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 409645809 ecr 412136722], length 0
+23:38:56.822734 IP 10.10.100.135.47516 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 409645809 ecr 412136722], length 0
+23:38:57.609724 IP vm-brumadinho-mongodb.38734 > vm-udia-dojot.1883: Flags [S], seq 2184020114, win 29200, options [mss 1460,sackOK,TS val 410910583 ecr 0,nop,wscale 6], length 0
+23:38:57.609775 IP vm-brumadinho-mongodb.38734 > 172.19.0.25.1883: Flags [S], seq 2184020114, win 29200, options [mss 1460,sackOK,TS val 410910583 ecr 0,nop,wscale 6], length 0
+23:38:57.609780 IP vm-brumadinho-mongodb.38734 > 172.19.0.25.1883: Flags [S], seq 2184020114, win 29200, options [mss 1460,sackOK,TS val 410910583 ecr 0,nop,wscale 6], length 0
+23:38:57.609843 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38734: Flags [S.], seq 2167549302, ack 2184020115, win 28960, options [mss 1460,sackOK,TS val 412136923 ecr 410910583,nop,wscale 7], length 0
+23:38:57.609850 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38734: Flags [S.], seq 2167549302, ack 2184020115, win 28960, options [mss 1460,sackOK,TS val 412136923 ecr 410910583,nop,wscale 7], length 0
+23:38:57.609860 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38734: Flags [S.], seq 2167549302, ack 2184020115, win 28960, options [mss 1460,sackOK,TS val 412136923 ecr 410910583,nop,wscale 7], length 0
+23:38:57.623675 IP vm-brumadinho-mongodb.38734 > vm-udia-dojot.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 410910587 ecr 412136923], length 0
+23:38:57.623710 IP vm-brumadinho-mongodb.38734 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 410910587 ecr 412136923], length 0
+23:38:57.623715 IP vm-brumadinho-mongodb.38734 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 410910587 ecr 412136923], length 0
+23:38:57.623719 IP vm-brumadinho-mongodb.38734 > vm-udia-dojot.1883: Flags [P.], seq 1:37, ack 1, win 457, options [nop,nop,TS val 410910587 ecr 412136923], length 36
+23:38:57.623725 IP vm-brumadinho-mongodb.38734 > 172.19.0.25.1883: Flags [P.], seq 1:37, ack 1, win 457, options [nop,nop,TS val 410910587 ecr 412136923], length 36
+23:38:57.623727 IP vm-brumadinho-mongodb.38734 > 172.19.0.25.1883: Flags [P.], seq 1:37, ack 1, win 457, options [nop,nop,TS val 410910587 ecr 412136923], length 36
+23:38:57.623840 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38734: Flags [.], ack 37, win 227, options [nop,nop,TS val 412136926 ecr 410910587], length 0
+23:38:57.623850 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38734: Flags [.], ack 37, win 227, options [nop,nop,TS val 412136926 ecr 410910587], length 0
+23:38:57.623860 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38734: Flags [.], ack 37, win 227, options [nop,nop,TS val 412136926 ecr 410910587], length 0
+23:38:57.629106 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38734: Flags [P.], seq 1:5, ack 37, win 227, options [nop,nop,TS val 412136928 ecr 410910587], length 4
+23:38:57.629115 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38734: Flags [P.], seq 1:5, ack 37, win 227, options [nop,nop,TS val 412136928 ecr 410910587], length 4
+23:38:57.629134 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38734: Flags [P.], seq 1:5, ack 37, win 227, options [nop,nop,TS val 412136928 ecr 410910587], length 4
+23:38:57.642552 IP vm-brumadinho-mongodb.38734 > vm-udia-dojot.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 410910592 ecr 412136928], length 0
+23:38:57.642583 IP vm-brumadinho-mongodb.38734 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 410910592 ecr 412136928], length 0
+23:38:57.642588 IP vm-brumadinho-mongodb.38734 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 410910592 ecr 412136928], length 0
+23:38:57.642592 IP vm-brumadinho-mongodb.38734 > vm-udia-dojot.1883: Flags [P.], seq 37:453, ack 5, win 457, options [nop,nop,TS val 410910592 ecr 412136928], length 416
+23:38:57.642599 IP vm-brumadinho-mongodb.38734 > 172.19.0.25.1883: Flags [P.], seq 37:453, ack 5, win 457, options [nop,nop,TS val 410910592 ecr 412136928], length 416
+23:38:57.642600 IP vm-brumadinho-mongodb.38734 > 172.19.0.25.1883: Flags [P.], seq 37:453, ack 5, win 457, options [nop,nop,TS val 410910592 ecr 412136928], length 416
+23:38:57.642602 IP vm-brumadinho-mongodb.38734 > vm-udia-dojot.1883: Flags [FP.], seq 453:455, ack 5, win 457, options [nop,nop,TS val 410910592 ecr 412136928], length 2
+23:38:57.642609 IP vm-brumadinho-mongodb.38734 > 172.19.0.25.1883: Flags [FP.], seq 453:455, ack 5, win 457, options [nop,nop,TS val 410910592 ecr 412136928], length 2
+23:38:57.642610 IP vm-brumadinho-mongodb.38734 > 172.19.0.25.1883: Flags [FP.], seq 453:455, ack 5, win 457, options [nop,nop,TS val 410910592 ecr 412136928], length 2
+23:38:57.642716 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38734: Flags [.], ack 456, win 235, options [nop,nop,TS val 412136931 ecr 410910592], length 0
+23:38:57.642723 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38734: Flags [.], ack 456, win 235, options [nop,nop,TS val 412136931 ecr 410910592], length 0
+23:38:57.642735 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38734: Flags [.], ack 456, win 235, options [nop,nop,TS val 412136931 ecr 410910592], length 0
+23:38:57.671605 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38734: Flags [F.], seq 5, ack 456, win 235, options [nop,nop,TS val 412136938 ecr 410910592], length 0
+23:38:57.671614 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38734: Flags [F.], seq 5, ack 456, win 235, options [nop,nop,TS val 412136938 ecr 410910592], length 0
+23:38:57.671635 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38734: Flags [F.], seq 5, ack 456, win 235, options [nop,nop,TS val 412136938 ecr 410910592], length 0
+23:38:57.685481 IP vm-brumadinho-mongodb.38734 > vm-udia-dojot.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 410910602 ecr 412136938], length 0
+23:38:57.685552 IP vm-brumadinho-mongodb.38734 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 410910602 ecr 412136938], length 0
+23:38:57.685559 IP vm-brumadinho-mongodb.38734 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 410910602 ecr 412136938], length 0
+23:38:57.811416 IP 10.10.100.135.47518 > vm-udia-dojot.1883: Flags [S], seq 2340594253, win 29200, options [mss 1460,sackOK,TS val 409646057 ecr 0,nop,wscale 6], length 0
+23:38:57.811464 IP 10.10.100.135.47518 > 172.19.0.25.1883: Flags [S], seq 2340594253, win 29200, options [mss 1460,sackOK,TS val 409646057 ecr 0,nop,wscale 6], length 0
+23:38:57.811469 IP 10.10.100.135.47518 > 172.19.0.25.1883: Flags [S], seq 2340594253, win 29200, options [mss 1460,sackOK,TS val 409646057 ecr 0,nop,wscale 6], length 0
+23:38:57.811521 IP 172.19.0.25.1883 > 10.10.100.135.47518: Flags [S.], seq 2623158068, ack 2340594254, win 28960, options [mss 1460,sackOK,TS val 412136973 ecr 409646057,nop,wscale 7], length 0
+23:38:57.811527 IP 172.19.0.25.1883 > 10.10.100.135.47518: Flags [S.], seq 2623158068, ack 2340594254, win 28960, options [mss 1460,sackOK,TS val 412136973 ecr 409646057,nop,wscale 7], length 0
+23:38:57.811536 IP vm-udia-dojot.1883 > 10.10.100.135.47518: Flags [S.], seq 2623158068, ack 2340594254, win 28960, options [mss 1460,sackOK,TS val 412136973 ecr 409646057,nop,wscale 7], length 0
+23:38:57.825895 IP 10.10.100.135.47518 > vm-udia-dojot.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 409646060 ecr 412136973], length 0
+23:38:57.825939 IP 10.10.100.135.47518 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 409646060 ecr 412136973], length 0
+23:38:57.825946 IP 10.10.100.135.47518 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 409646060 ecr 412136973], length 0
+23:38:57.825950 IP 10.10.100.135.47518 > vm-udia-dojot.1883: Flags [P.], seq 1:40, ack 1, win 457, options [nop,nop,TS val 409646060 ecr 412136973], length 39
+23:38:57.825957 IP 10.10.100.135.47518 > 172.19.0.25.1883: Flags [P.], seq 1:40, ack 1, win 457, options [nop,nop,TS val 409646060 ecr 412136973], length 39
+23:38:57.825958 IP 10.10.100.135.47518 > 172.19.0.25.1883: Flags [P.], seq 1:40, ack 1, win 457, options [nop,nop,TS val 409646060 ecr 412136973], length 39
+23:38:57.826028 IP 172.19.0.25.1883 > 10.10.100.135.47518: Flags [.], ack 40, win 227, options [nop,nop,TS val 412136977 ecr 409646060], length 0
+23:38:57.826034 IP 172.19.0.25.1883 > 10.10.100.135.47518: Flags [.], ack 40, win 227, options [nop,nop,TS val 412136977 ecr 409646060], length 0
+23:38:57.826044 IP vm-udia-dojot.1883 > 10.10.100.135.47518: Flags [.], ack 40, win 227, options [nop,nop,TS val 412136977 ecr 409646060], length 0
+23:38:57.829846 IP 172.19.0.25.1883 > 10.10.100.135.47518: Flags [P.], seq 1:5, ack 40, win 227, options [nop,nop,TS val 412136978 ecr 409646060], length 4
+23:38:57.829855 IP 172.19.0.25.1883 > 10.10.100.135.47518: Flags [P.], seq 1:5, ack 40, win 227, options [nop,nop,TS val 412136978 ecr 409646060], length 4
+23:38:57.829874 IP vm-udia-dojot.1883 > 10.10.100.135.47518: Flags [P.], seq 1:5, ack 40, win 227, options [nop,nop,TS val 412136978 ecr 409646060], length 4
+23:38:57.843849 IP 10.10.100.135.47518 > vm-udia-dojot.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 409646065 ecr 412136978], length 0
+23:38:57.843909 IP 10.10.100.135.47518 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 409646065 ecr 412136978], length 0
+23:38:57.843915 IP 10.10.100.135.47518 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 409646065 ecr 412136978], length 0
+23:38:57.843921 IP 10.10.100.135.47518 > vm-udia-dojot.1883: Flags [P.], seq 40:456, ack 5, win 457, options [nop,nop,TS val 409646065 ecr 412136978], length 416
+23:38:57.843958 IP 10.10.100.135.47518 > 172.19.0.25.1883: Flags [P.], seq 40:456, ack 5, win 457, options [nop,nop,TS val 409646065 ecr 412136978], length 416
+23:38:57.843960 IP 10.10.100.135.47518 > 172.19.0.25.1883: Flags [P.], seq 40:456, ack 5, win 457, options [nop,nop,TS val 409646065 ecr 412136978], length 416
+23:38:57.843963 IP 10.10.100.135.47518 > vm-udia-dojot.1883: Flags [FP.], seq 456:458, ack 5, win 457, options [nop,nop,TS val 409646065 ecr 412136978], length 2
+23:38:57.843999 IP 10.10.100.135.47518 > 172.19.0.25.1883: Flags [FP.], seq 456:458, ack 5, win 457, options [nop,nop,TS val 409646065 ecr 412136978], length 2
+23:38:57.844001 IP 10.10.100.135.47518 > 172.19.0.25.1883: Flags [FP.], seq 456:458, ack 5, win 457, options [nop,nop,TS val 409646065 ecr 412136978], length 2
+23:38:57.844161 IP 172.19.0.25.1883 > 10.10.100.135.47518: Flags [.], ack 459, win 235, options [nop,nop,TS val 412136981 ecr 409646065], length 0
+23:38:57.844169 IP 172.19.0.25.1883 > 10.10.100.135.47518: Flags [.], ack 459, win 235, options [nop,nop,TS val 412136981 ecr 409646065], length 0
+23:38:57.844180 IP vm-udia-dojot.1883 > 10.10.100.135.47518: Flags [.], ack 459, win 235, options [nop,nop,TS val 412136981 ecr 409646065], length 0
+23:38:57.847396 IP 172.19.0.25.1883 > 10.10.100.135.47518: Flags [F.], seq 5, ack 459, win 235, options [nop,nop,TS val 412136982 ecr 409646065], length 0
+23:38:57.847413 IP 172.19.0.25.1883 > 10.10.100.135.47518: Flags [F.], seq 5, ack 459, win 235, options [nop,nop,TS val 412136982 ecr 409646065], length 0
+23:38:57.847433 IP vm-udia-dojot.1883 > 10.10.100.135.47518: Flags [F.], seq 5, ack 459, win 235, options [nop,nop,TS val 412136982 ecr 409646065], length 0
+23:38:57.861689 IP 10.10.100.135.47518 > vm-udia-dojot.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 409646069 ecr 412136982], length 0
+23:38:57.861712 IP 10.10.100.135.47518 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 409646069 ecr 412136982], length 0
+23:38:57.861716 IP 10.10.100.135.47518 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 409646069 ecr 412136982], length 0
+23:38:58.677017 IP vm-brumadinho-mongodb.38736 > vm-udia-dojot.1883: Flags [S], seq 1553494959, win 29200, options [mss 1460,sackOK,TS val 410910850 ecr 0,nop,wscale 6], length 0
+23:38:58.677055 IP vm-brumadinho-mongodb.38736 > 172.19.0.25.1883: Flags [S], seq 1553494959, win 29200, options [mss 1460,sackOK,TS val 410910850 ecr 0,nop,wscale 6], length 0
+23:38:58.677060 IP vm-brumadinho-mongodb.38736 > 172.19.0.25.1883: Flags [S], seq 1553494959, win 29200, options [mss 1460,sackOK,TS val 410910850 ecr 0,nop,wscale 6], length 0
+23:38:58.677095 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38736: Flags [S.], seq 1310105151, ack 1553494960, win 28960, options [mss 1460,sackOK,TS val 412137189 ecr 410910850,nop,wscale 7], length 0
+23:38:58.677099 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38736: Flags [S.], seq 1310105151, ack 1553494960, win 28960, options [mss 1460,sackOK,TS val 412137189 ecr 410910850,nop,wscale 7], length 0
+23:38:58.677104 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38736: Flags [S.], seq 1310105151, ack 1553494960, win 28960, options [mss 1460,sackOK,TS val 412137189 ecr 410910850,nop,wscale 7], length 0
+23:38:58.691139 IP vm-brumadinho-mongodb.38736 > vm-udia-dojot.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 410910854 ecr 412137189], length 0
+23:38:58.691174 IP vm-brumadinho-mongodb.38736 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 410910854 ecr 412137189], length 0
+23:38:58.691179 IP vm-brumadinho-mongodb.38736 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 410910854 ecr 412137189], length 0
+23:38:58.691183 IP vm-brumadinho-mongodb.38736 > vm-udia-dojot.1883: Flags [P.], seq 1:37, ack 1, win 457, options [nop,nop,TS val 410910854 ecr 412137189], length 36
+23:38:58.691188 IP vm-brumadinho-mongodb.38736 > 172.19.0.25.1883: Flags [P.], seq 1:37, ack 1, win 457, options [nop,nop,TS val 410910854 ecr 412137189], length 36
+23:38:58.691189 IP vm-brumadinho-mongodb.38736 > 172.19.0.25.1883: Flags [P.], seq 1:37, ack 1, win 457, options [nop,nop,TS val 410910854 ecr 412137189], length 36
+23:38:58.691281 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38736: Flags [.], ack 37, win 227, options [nop,nop,TS val 412137193 ecr 410910854], length 0
+23:38:58.691288 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38736: Flags [.], ack 37, win 227, options [nop,nop,TS val 412137193 ecr 410910854], length 0
+23:38:58.691297 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38736: Flags [.], ack 37, win 227, options [nop,nop,TS val 412137193 ecr 410910854], length 0
+23:38:58.693209 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38736: Flags [P.], seq 1:5, ack 37, win 227, options [nop,nop,TS val 412137194 ecr 410910854], length 4
+23:38:58.693215 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38736: Flags [P.], seq 1:5, ack 37, win 227, options [nop,nop,TS val 412137194 ecr 410910854], length 4
+23:38:58.693228 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38736: Flags [P.], seq 1:5, ack 37, win 227, options [nop,nop,TS val 412137194 ecr 410910854], length 4
+23:38:58.707926 IP vm-brumadinho-mongodb.38736 > vm-udia-dojot.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 410910858 ecr 412137194], length 0
+23:38:58.707951 IP vm-brumadinho-mongodb.38736 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 410910858 ecr 412137194], length 0
+23:38:58.707955 IP vm-brumadinho-mongodb.38736 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 410910858 ecr 412137194], length 0
+23:38:58.707957 IP vm-brumadinho-mongodb.38736 > vm-udia-dojot.1883: Flags [P.], seq 37:452, ack 5, win 457, options [nop,nop,TS val 410910858 ecr 412137194], length 415
+23:38:58.707962 IP vm-brumadinho-mongodb.38736 > 172.19.0.25.1883: Flags [P.], seq 37:452, ack 5, win 457, options [nop,nop,TS val 410910858 ecr 412137194], length 415
+23:38:58.707963 IP vm-brumadinho-mongodb.38736 > 172.19.0.25.1883: Flags [P.], seq 37:452, ack 5, win 457, options [nop,nop,TS val 410910858 ecr 412137194], length 415
+23:38:58.707963 IP vm-brumadinho-mongodb.38736 > vm-udia-dojot.1883: Flags [FP.], seq 452:454, ack 5, win 457, options [nop,nop,TS val 410910858 ecr 412137194], length 2
+23:38:58.707968 IP vm-brumadinho-mongodb.38736 > 172.19.0.25.1883: Flags [FP.], seq 452:454, ack 5, win 457, options [nop,nop,TS val 410910858 ecr 412137194], length 2
+23:38:58.707969 IP vm-brumadinho-mongodb.38736 > 172.19.0.25.1883: Flags [FP.], seq 452:454, ack 5, win 457, options [nop,nop,TS val 410910858 ecr 412137194], length 2
+23:38:58.708095 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38736: Flags [.], ack 455, win 235, options [nop,nop,TS val 412137197 ecr 410910858], length 0
+23:38:58.708101 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38736: Flags [.], ack 455, win 235, options [nop,nop,TS val 412137197 ecr 410910858], length 0
+23:38:58.708110 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38736: Flags [.], ack 455, win 235, options [nop,nop,TS val 412137197 ecr 410910858], length 0
+23:38:58.710169 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38736: Flags [F.], seq 5, ack 455, win 235, options [nop,nop,TS val 412137198 ecr 410910858], length 0
+23:38:58.710172 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38736: Flags [F.], seq 5, ack 455, win 235, options [nop,nop,TS val 412137198 ecr 410910858], length 0
+23:38:58.710182 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38736: Flags [F.], seq 5, ack 455, win 235, options [nop,nop,TS val 412137198 ecr 410910858], length 0
+23:38:58.723766 IP vm-brumadinho-mongodb.38736 > vm-udia-dojot.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 410910862 ecr 412137198], length 0
+23:38:58.723814 IP vm-brumadinho-mongodb.38736 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 410910862 ecr 412137198], length 0
+23:38:58.723819 IP vm-brumadinho-mongodb.38736 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 410910862 ecr 412137198], length 0
+23:38:58.893277 IP 10.10.100.135.47520 > vm-udia-dojot.1883: Flags [S], seq 2827227266, win 29200, options [mss 1460,sackOK,TS val 409646327 ecr 0,nop,wscale 6], length 0
+23:38:58.893322 IP 10.10.100.135.47520 > 172.19.0.25.1883: Flags [S], seq 2827227266, win 29200, options [mss 1460,sackOK,TS val 409646327 ecr 0,nop,wscale 6], length 0
+23:38:58.893327 IP 10.10.100.135.47520 > 172.19.0.25.1883: Flags [S], seq 2827227266, win 29200, options [mss 1460,sackOK,TS val 409646327 ecr 0,nop,wscale 6], length 0
+23:38:58.893368 IP 172.19.0.25.1883 > 10.10.100.135.47520: Flags [S.], seq 1179870139, ack 2827227267, win 28960, options [mss 1460,sackOK,TS val 412137244 ecr 409646327,nop,wscale 7], length 0
+23:38:58.893373 IP 172.19.0.25.1883 > 10.10.100.135.47520: Flags [S.], seq 1179870139, ack 2827227267, win 28960, options [mss 1460,sackOK,TS val 412137244 ecr 409646327,nop,wscale 7], length 0
+23:38:58.893380 IP vm-udia-dojot.1883 > 10.10.100.135.47520: Flags [S.], seq 1179870139, ack 2827227267, win 28960, options [mss 1460,sackOK,TS val 412137244 ecr 409646327,nop,wscale 7], length 0
+23:38:58.907254 IP 10.10.100.135.47520 > vm-udia-dojot.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 409646331 ecr 412137244], length 0
+23:38:58.907287 IP 10.10.100.135.47520 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 409646331 ecr 412137244], length 0
+23:38:58.907293 IP 10.10.100.135.47520 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 409646331 ecr 412137244], length 0
+23:38:58.907296 IP 10.10.100.135.47520 > vm-udia-dojot.1883: Flags [P.], seq 1:40, ack 1, win 457, options [nop,nop,TS val 409646331 ecr 412137244], length 39
+23:38:58.907302 IP 10.10.100.135.47520 > 172.19.0.25.1883: Flags [P.], seq 1:40, ack 1, win 457, options [nop,nop,TS val 409646331 ecr 412137244], length 39
+23:38:58.907303 IP 10.10.100.135.47520 > 172.19.0.25.1883: Flags [P.], seq 1:40, ack 1, win 457, options [nop,nop,TS val 409646331 ecr 412137244], length 39
+23:38:58.907390 IP 172.19.0.25.1883 > 10.10.100.135.47520: Flags [.], ack 40, win 227, options [nop,nop,TS val 412137247 ecr 409646331], length 0
+23:38:58.907397 IP 172.19.0.25.1883 > 10.10.100.135.47520: Flags [.], ack 40, win 227, options [nop,nop,TS val 412137247 ecr 409646331], length 0
+23:38:58.907406 IP vm-udia-dojot.1883 > 10.10.100.135.47520: Flags [.], ack 40, win 227, options [nop,nop,TS val 412137247 ecr 409646331], length 0
+23:38:58.909499 IP 172.19.0.25.1883 > 10.10.100.135.47520: Flags [P.], seq 1:5, ack 40, win 227, options [nop,nop,TS val 412137247 ecr 409646331], length 4
+23:38:58.909506 IP 172.19.0.25.1883 > 10.10.100.135.47520: Flags [P.], seq 1:5, ack 40, win 227, options [nop,nop,TS val 412137247 ecr 409646331], length 4
+23:38:58.909520 IP vm-udia-dojot.1883 > 10.10.100.135.47520: Flags [P.], seq 1:5, ack 40, win 227, options [nop,nop,TS val 412137247 ecr 409646331], length 4
+23:38:58.924254 IP 10.10.100.135.47520 > vm-udia-dojot.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 409646335 ecr 412137247], length 0
+23:38:58.924296 IP 10.10.100.135.47520 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 409646335 ecr 412137247], length 0
+23:38:58.924302 IP 10.10.100.135.47520 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 409646335 ecr 412137247], length 0
+23:38:58.924307 IP 10.10.100.135.47520 > vm-udia-dojot.1883: Flags [P.], seq 40:456, ack 5, win 457, options [nop,nop,TS val 409646335 ecr 412137247], length 416
+23:38:58.924313 IP 10.10.100.135.47520 > 172.19.0.25.1883: Flags [P.], seq 40:456, ack 5, win 457, options [nop,nop,TS val 409646335 ecr 412137247], length 416
+23:38:58.924314 IP 10.10.100.135.47520 > 172.19.0.25.1883: Flags [P.], seq 40:456, ack 5, win 457, options [nop,nop,TS val 409646335 ecr 412137247], length 416
+23:38:58.924316 IP 10.10.100.135.47520 > vm-udia-dojot.1883: Flags [FP.], seq 456:458, ack 5, win 457, options [nop,nop,TS val 409646335 ecr 412137247], length 2
+23:38:58.924322 IP 10.10.100.135.47520 > 172.19.0.25.1883: Flags [FP.], seq 456:458, ack 5, win 457, options [nop,nop,TS val 409646335 ecr 412137247], length 2
+23:38:58.924323 IP 10.10.100.135.47520 > 172.19.0.25.1883: Flags [FP.], seq 456:458, ack 5, win 457, options [nop,nop,TS val 409646335 ecr 412137247], length 2
+23:38:58.924497 IP 172.19.0.25.1883 > 10.10.100.135.47520: Flags [.], ack 459, win 235, options [nop,nop,TS val 412137251 ecr 409646335], length 0
+23:38:58.924507 IP 172.19.0.25.1883 > 10.10.100.135.47520: Flags [.], ack 459, win 235, options [nop,nop,TS val 412137251 ecr 409646335], length 0
+23:38:58.924518 IP vm-udia-dojot.1883 > 10.10.100.135.47520: Flags [.], ack 459, win 235, options [nop,nop,TS val 412137251 ecr 409646335], length 0
+23:38:58.927324 IP 172.19.0.25.1883 > 10.10.100.135.47520: Flags [F.], seq 5, ack 459, win 235, options [nop,nop,TS val 412137252 ecr 409646335], length 0
+23:38:58.927331 IP 172.19.0.25.1883 > 10.10.100.135.47520: Flags [F.], seq 5, ack 459, win 235, options [nop,nop,TS val 412137252 ecr 409646335], length 0
+23:38:58.927345 IP vm-udia-dojot.1883 > 10.10.100.135.47520: Flags [F.], seq 5, ack 459, win 235, options [nop,nop,TS val 412137252 ecr 409646335], length 0
+23:38:58.941063 IP 10.10.100.135.47520 > vm-udia-dojot.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 409646339 ecr 412137252], length 0
+23:38:58.941094 IP 10.10.100.135.47520 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 409646339 ecr 412137252], length 0
+23:38:58.941100 IP 10.10.100.135.47520 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 409646339 ecr 412137252], length 0
+23:38:59.738215 IP vm-brumadinho-mongodb.38738 > vm-udia-dojot.1883: Flags [S], seq 302200751, win 29200, options [mss 1460,sackOK,TS val 410911111 ecr 0,nop,wscale 6], length 0
+23:38:59.738276 IP vm-brumadinho-mongodb.38738 > 172.19.0.25.1883: Flags [S], seq 302200751, win 29200, options [mss 1460,sackOK,TS val 410911111 ecr 0,nop,wscale 6], length 0
+23:38:59.738283 IP vm-brumadinho-mongodb.38738 > 172.19.0.25.1883: Flags [S], seq 302200751, win 29200, options [mss 1460,sackOK,TS val 410911111 ecr 0,nop,wscale 6], length 0
+23:38:59.738432 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38738: Flags [S.], seq 1686806183, ack 302200752, win 28960, options [mss 1460,sackOK,TS val 412137455 ecr 410911111,nop,wscale 7], length 0
+23:38:59.738442 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38738: Flags [S.], seq 1686806183, ack 302200752, win 28960, options [mss 1460,sackOK,TS val 412137455 ecr 410911111,nop,wscale 7], length 0
+23:38:59.738456 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38738: Flags [S.], seq 1686806183, ack 302200752, win 28960, options [mss 1460,sackOK,TS val 412137455 ecr 410911111,nop,wscale 7], length 0
+23:38:59.751907 IP vm-brumadinho-mongodb.38738 > vm-udia-dojot.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 410911119 ecr 412137455], length 0
+23:38:59.751948 IP vm-brumadinho-mongodb.38738 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 410911119 ecr 412137455], length 0
+23:38:59.751955 IP vm-brumadinho-mongodb.38738 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 410911119 ecr 412137455], length 0
+23:38:59.751959 IP vm-brumadinho-mongodb.38738 > vm-udia-dojot.1883: Flags [P.], seq 1:37, ack 1, win 457, options [nop,nop,TS val 410911119 ecr 412137455], length 36
+23:38:59.751965 IP vm-brumadinho-mongodb.38738 > 172.19.0.25.1883: Flags [P.], seq 1:37, ack 1, win 457, options [nop,nop,TS val 410911119 ecr 412137455], length 36
+23:38:59.751967 IP vm-brumadinho-mongodb.38738 > 172.19.0.25.1883: Flags [P.], seq 1:37, ack 1, win 457, options [nop,nop,TS val 410911119 ecr 412137455], length 36
+23:38:59.752079 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38738: Flags [.], ack 37, win 227, options [nop,nop,TS val 412137458 ecr 410911119], length 0
+23:38:59.752089 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38738: Flags [.], ack 37, win 227, options [nop,nop,TS val 412137458 ecr 410911119], length 0
+23:38:59.752100 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38738: Flags [.], ack 37, win 227, options [nop,nop,TS val 412137458 ecr 410911119], length 0
+23:38:59.754748 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38738: Flags [P.], seq 1:5, ack 37, win 227, options [nop,nop,TS val 412137459 ecr 410911119], length 4
+23:38:59.754756 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38738: Flags [P.], seq 1:5, ack 37, win 227, options [nop,nop,TS val 412137459 ecr 410911119], length 4
+23:38:59.754774 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38738: Flags [P.], seq 1:5, ack 37, win 227, options [nop,nop,TS val 412137459 ecr 410911119], length 4
+23:38:59.768023 IP vm-brumadinho-mongodb.38738 > vm-udia-dojot.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 410911123 ecr 412137459], length 0
+23:38:59.768065 IP vm-brumadinho-mongodb.38738 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 410911123 ecr 412137459], length 0
+23:38:59.768072 IP vm-brumadinho-mongodb.38738 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 410911123 ecr 412137459], length 0
+23:38:59.768077 IP vm-brumadinho-mongodb.38738 > vm-udia-dojot.1883: Flags [P.], seq 37:453, ack 5, win 457, options [nop,nop,TS val 410911123 ecr 412137459], length 416
+23:38:59.768083 IP vm-brumadinho-mongodb.38738 > 172.19.0.25.1883: Flags [P.], seq 37:453, ack 5, win 457, options [nop,nop,TS val 410911123 ecr 412137459], length 416
+23:38:59.768084 IP vm-brumadinho-mongodb.38738 > 172.19.0.25.1883: Flags [P.], seq 37:453, ack 5, win 457, options [nop,nop,TS val 410911123 ecr 412137459], length 416
+23:38:59.768086 IP vm-brumadinho-mongodb.38738 > vm-udia-dojot.1883: Flags [FP.], seq 453:455, ack 5, win 457, options [nop,nop,TS val 410911123 ecr 412137459], length 2
+23:38:59.768093 IP vm-brumadinho-mongodb.38738 > 172.19.0.25.1883: Flags [FP.], seq 453:455, ack 5, win 457, options [nop,nop,TS val 410911123 ecr 412137459], length 2
+23:38:59.768094 IP vm-brumadinho-mongodb.38738 > 172.19.0.25.1883: Flags [FP.], seq 453:455, ack 5, win 457, options [nop,nop,TS val 410911123 ecr 412137459], length 2
+23:38:59.768357 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38738: Flags [.], ack 456, win 235, options [nop,nop,TS val 412137462 ecr 410911123], length 0
+23:38:59.768369 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38738: Flags [.], ack 456, win 235, options [nop,nop,TS val 412137462 ecr 410911123], length 0
+23:38:59.768386 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38738: Flags [.], ack 456, win 235, options [nop,nop,TS val 412137462 ecr 410911123], length 0
+23:38:59.771693 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38738: Flags [F.], seq 5, ack 456, win 235, options [nop,nop,TS val 412137463 ecr 410911123], length 0
+23:38:59.771702 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38738: Flags [F.], seq 5, ack 456, win 235, options [nop,nop,TS val 412137463 ecr 410911123], length 0
+23:38:59.771720 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38738: Flags [F.], seq 5, ack 456, win 235, options [nop,nop,TS val 412137463 ecr 410911123], length 0
+23:38:59.785468 IP vm-brumadinho-mongodb.38738 > vm-udia-dojot.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 410911127 ecr 412137463], length 0
+23:38:59.785543 IP vm-brumadinho-mongodb.38738 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 410911127 ecr 412137463], length 0
+23:38:59.785550 IP vm-brumadinho-mongodb.38738 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 410911127 ecr 412137463], length 0
+23:38:59.933622 IP 10.10.100.135.47522 > vm-udia-dojot.1883: Flags [S], seq 402524906, win 29200, options [mss 1460,sackOK,TS val 409646587 ecr 0,nop,wscale 6], length 0
+23:38:59.933687 IP 10.10.100.135.47522 > 172.19.0.25.1883: Flags [S], seq 402524906, win 29200, options [mss 1460,sackOK,TS val 409646587 ecr 0,nop,wscale 6], length 0
+23:38:59.933695 IP 10.10.100.135.47522 > 172.19.0.25.1883: Flags [S], seq 402524906, win 29200, options [mss 1460,sackOK,TS val 409646587 ecr 0,nop,wscale 6], length 0
+23:38:59.933754 IP 172.19.0.25.1883 > 10.10.100.135.47522: Flags [S.], seq 2965718206, ack 402524907, win 28960, options [mss 1460,sackOK,TS val 412137504 ecr 409646587,nop,wscale 7], length 0
+23:38:59.933761 IP 172.19.0.25.1883 > 10.10.100.135.47522: Flags [S.], seq 2965718206, ack 402524907, win 28960, options [mss 1460,sackOK,TS val 412137504 ecr 409646587,nop,wscale 7], length 0
+23:38:59.933769 IP vm-udia-dojot.1883 > 10.10.100.135.47522: Flags [S.], seq 2965718206, ack 402524907, win 28960, options [mss 1460,sackOK,TS val 412137504 ecr 409646587,nop,wscale 7], length 0
+23:38:59.986111 IP 10.10.100.135.47522 > vm-udia-dojot.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 409646591 ecr 412137504], length 0
+23:38:59.986198 IP 10.10.100.135.47522 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 409646591 ecr 412137504], length 0
+23:38:59.986210 IP 10.10.100.135.47522 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 409646591 ecr 412137504], length 0
+23:38:59.986218 IP 10.10.100.135.47522 > vm-udia-dojot.1883: Flags [P.], seq 1:40, ack 1, win 457, options [nop,nop,TS val 409646591 ecr 412137504], length 39
+23:38:59.986235 IP 10.10.100.135.47522 > 172.19.0.25.1883: Flags [P.], seq 1:40, ack 1, win 457, options [nop,nop,TS val 409646591 ecr 412137504], length 39
+23:38:59.986237 IP 10.10.100.135.47522 > 172.19.0.25.1883: Flags [P.], seq 1:40, ack 1, win 457, options [nop,nop,TS val 409646591 ecr 412137504], length 39
+23:38:59.986394 IP 172.19.0.25.1883 > 10.10.100.135.47522: Flags [.], ack 40, win 227, options [nop,nop,TS val 412137512 ecr 409646591], length 0
+23:38:59.986407 IP 172.19.0.25.1883 > 10.10.100.135.47522: Flags [.], ack 40, win 227, options [nop,nop,TS val 412137512 ecr 409646591], length 0
+23:38:59.986426 IP vm-udia-dojot.1883 > 10.10.100.135.47522: Flags [.], ack 40, win 227, options [nop,nop,TS val 412137512 ecr 409646591], length 0
+23:38:59.995344 IP 172.19.0.25.1883 > 10.10.100.135.47522: Flags [P.], seq 1:5, ack 40, win 227, options [nop,nop,TS val 412137519 ecr 409646591], length 4
+23:38:59.995351 IP 172.19.0.25.1883 > 10.10.100.135.47522: Flags [P.], seq 1:5, ack 40, win 227, options [nop,nop,TS val 412137519 ecr 409646591], length 4
+23:38:59.995364 IP vm-udia-dojot.1883 > 10.10.100.135.47522: Flags [P.], seq 1:5, ack 40, win 227, options [nop,nop,TS val 412137519 ecr 409646591], length 4
+23:39:00.009197 IP 10.10.100.135.47522 > vm-udia-dojot.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 409646606 ecr 412137519], length 0
+23:39:00.009240 IP 10.10.100.135.47522 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 409646606 ecr 412137519], length 0
+23:39:00.009246 IP 10.10.100.135.47522 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 409646606 ecr 412137519], length 0
+23:39:00.009250 IP 10.10.100.135.47522 > vm-udia-dojot.1883: Flags [P.], seq 40:455, ack 5, win 457, options [nop,nop,TS val 409646606 ecr 412137519], length 415
+23:39:00.009257 IP 10.10.100.135.47522 > 172.19.0.25.1883: Flags [P.], seq 40:455, ack 5, win 457, options [nop,nop,TS val 409646606 ecr 412137519], length 415
+23:39:00.009258 IP 10.10.100.135.47522 > 172.19.0.25.1883: Flags [P.], seq 40:455, ack 5, win 457, options [nop,nop,TS val 409646606 ecr 412137519], length 415
+23:39:00.009259 IP 10.10.100.135.47522 > vm-udia-dojot.1883: Flags [FP.], seq 455:457, ack 5, win 457, options [nop,nop,TS val 409646606 ecr 412137519], length 2
+23:39:00.009264 IP 10.10.100.135.47522 > 172.19.0.25.1883: Flags [FP.], seq 455:457, ack 5, win 457, options [nop,nop,TS val 409646606 ecr 412137519], length 2
+23:39:00.009264 IP 10.10.100.135.47522 > 172.19.0.25.1883: Flags [FP.], seq 455:457, ack 5, win 457, options [nop,nop,TS val 409646606 ecr 412137519], length 2
+23:39:00.009411 IP 172.19.0.25.1883 > 10.10.100.135.47522: Flags [.], ack 458, win 235, options [nop,nop,TS val 412137523 ecr 409646606], length 0
+23:39:00.009418 IP 172.19.0.25.1883 > 10.10.100.135.47522: Flags [.], ack 458, win 235, options [nop,nop,TS val 412137523 ecr 409646606], length 0
+23:39:00.009429 IP vm-udia-dojot.1883 > 10.10.100.135.47522: Flags [.], ack 458, win 235, options [nop,nop,TS val 412137523 ecr 409646606], length 0
+23:39:00.011532 IP 172.19.0.25.1883 > 10.10.100.135.47522: Flags [F.], seq 5, ack 458, win 235, options [nop,nop,TS val 412137523 ecr 409646606], length 0
+23:39:00.011537 IP 172.19.0.25.1883 > 10.10.100.135.47522: Flags [F.], seq 5, ack 458, win 235, options [nop,nop,TS val 412137523 ecr 409646606], length 0
+23:39:00.011549 IP vm-udia-dojot.1883 > 10.10.100.135.47522: Flags [F.], seq 5, ack 458, win 235, options [nop,nop,TS val 412137523 ecr 409646606], length 0
+23:39:00.025251 IP 10.10.100.135.47522 > vm-udia-dojot.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 409646610 ecr 412137523], length 0
+23:39:00.025296 IP 10.10.100.135.47522 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 409646610 ecr 412137523], length 0
+23:39:00.025304 IP 10.10.100.135.47522 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 409646610 ecr 412137523], length 0
+23:39:00.775897 IP vm-brumadinho-mongodb.38740 > vm-udia-dojot.1883: Flags [S], seq 102058331, win 29200, options [mss 1460,sackOK,TS val 410911375 ecr 0,nop,wscale 6], length 0
+23:39:00.775943 IP vm-brumadinho-mongodb.38740 > 172.19.0.25.1883: Flags [S], seq 102058331, win 29200, options [mss 1460,sackOK,TS val 410911375 ecr 0,nop,wscale 6], length 0
+23:39:00.775948 IP vm-brumadinho-mongodb.38740 > 172.19.0.25.1883: Flags [S], seq 102058331, win 29200, options [mss 1460,sackOK,TS val 410911375 ecr 0,nop,wscale 6], length 0
+23:39:00.775985 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38740: Flags [S.], seq 2947936368, ack 102058332, win 28960, options [mss 1460,sackOK,TS val 412137714 ecr 410911375,nop,wscale 7], length 0
+23:39:00.775989 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38740: Flags [S.], seq 2947936368, ack 102058332, win 28960, options [mss 1460,sackOK,TS val 412137714 ecr 410911375,nop,wscale 7], length 0
+23:39:00.775993 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38740: Flags [S.], seq 2947936368, ack 102058332, win 28960, options [mss 1460,sackOK,TS val 412137714 ecr 410911375,nop,wscale 7], length 0
+23:39:00.789244 IP vm-brumadinho-mongodb.38740 > vm-udia-dojot.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 410911379 ecr 412137714], length 0
+23:39:00.789292 IP vm-brumadinho-mongodb.38740 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 410911379 ecr 412137714], length 0
+23:39:00.789301 IP vm-brumadinho-mongodb.38740 > 172.19.0.25.1883: Flags [.], ack 1, win 457, options [nop,nop,TS val 410911379 ecr 412137714], length 0
+23:39:00.789306 IP vm-brumadinho-mongodb.38740 > vm-udia-dojot.1883: Flags [P.], seq 1:37, ack 1, win 457, options [nop,nop,TS val 410911379 ecr 412137714], length 36
+23:39:00.789317 IP vm-brumadinho-mongodb.38740 > 172.19.0.25.1883: Flags [P.], seq 1:37, ack 1, win 457, options [nop,nop,TS val 410911379 ecr 412137714], length 36
+23:39:00.789319 IP vm-brumadinho-mongodb.38740 > 172.19.0.25.1883: Flags [P.], seq 1:37, ack 1, win 457, options [nop,nop,TS val 410911379 ecr 412137714], length 36
+23:39:00.789465 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38740: Flags [.], ack 37, win 227, options [nop,nop,TS val 412137718 ecr 410911379], length 0
+23:39:00.789479 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38740: Flags [.], ack 37, win 227, options [nop,nop,TS val 412137718 ecr 410911379], length 0
+23:39:00.789494 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38740: Flags [.], ack 37, win 227, options [nop,nop,TS val 412137718 ecr 410911379], length 0
+23:39:00.791939 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38740: Flags [P.], seq 1:5, ack 37, win 227, options [nop,nop,TS val 412137718 ecr 410911379], length 4
+23:39:00.791947 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38740: Flags [P.], seq 1:5, ack 37, win 227, options [nop,nop,TS val 412137718 ecr 410911379], length 4
+23:39:00.791965 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38740: Flags [P.], seq 1:5, ack 37, win 227, options [nop,nop,TS val 412137718 ecr 410911379], length 4
+23:39:00.805702 IP vm-brumadinho-mongodb.38740 > vm-udia-dojot.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 410911383 ecr 412137718], length 0
+23:39:00.805761 IP vm-brumadinho-mongodb.38740 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 410911383 ecr 412137718], length 0
+23:39:00.805765 IP vm-brumadinho-mongodb.38740 > 172.19.0.25.1883: Flags [.], ack 5, win 457, options [nop,nop,TS val 410911383 ecr 412137718], length 0
+23:39:00.805768 IP vm-brumadinho-mongodb.38740 > vm-udia-dojot.1883: Flags [P.], seq 37:453, ack 5, win 457, options [nop,nop,TS val 410911383 ecr 412137718], length 416
+23:39:00.805772 IP vm-brumadinho-mongodb.38740 > 172.19.0.25.1883: Flags [P.], seq 37:453, ack 5, win 457, options [nop,nop,TS val 410911383 ecr 412137718], length 416
+23:39:00.805773 IP vm-brumadinho-mongodb.38740 > 172.19.0.25.1883: Flags [P.], seq 37:453, ack 5, win 457, options [nop,nop,TS val 410911383 ecr 412137718], length 416
+23:39:00.805774 IP vm-brumadinho-mongodb.38740 > vm-udia-dojot.1883: Flags [FP.], seq 453:455, ack 5, win 457, options [nop,nop,TS val 410911383 ecr 412137718], length 2
+23:39:00.805777 IP vm-brumadinho-mongodb.38740 > 172.19.0.25.1883: Flags [FP.], seq 453:455, ack 5, win 457, options [nop,nop,TS val 410911383 ecr 412137718], length 2
+23:39:00.805778 IP vm-brumadinho-mongodb.38740 > 172.19.0.25.1883: Flags [FP.], seq 453:455, ack 5, win 457, options [nop,nop,TS val 410911383 ecr 412137718], length 2
+23:39:00.805973 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38740: Flags [.], ack 456, win 235, options [nop,nop,TS val 412137722 ecr 410911383], length 0
+23:39:00.805979 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38740: Flags [.], ack 456, win 235, options [nop,nop,TS val 412137722 ecr 410911383], length 0
+23:39:00.805989 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38740: Flags [.], ack 456, win 235, options [nop,nop,TS val 412137722 ecr 410911383], length 0
+23:39:00.809141 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38740: Flags [F.], seq 5, ack 456, win 235, options [nop,nop,TS val 412137722 ecr 410911383], length 0
+23:39:00.809146 IP 172.19.0.25.1883 > vm-brumadinho-mongodb.38740: Flags [F.], seq 5, ack 456, win 235, options [nop,nop,TS val 412137722 ecr 410911383], length 0
+23:39:00.809157 IP vm-udia-dojot.1883 > vm-brumadinho-mongodb.38740: Flags [F.], seq 5, ack 456, win 235, options [nop,nop,TS val 412137722 ecr 410911383], length 0
+23:39:00.822835 IP vm-brumadinho-mongodb.38740 > vm-udia-dojot.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 410911387 ecr 412137722], length 0
+23:39:00.822865 IP vm-brumadinho-mongodb.38740 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 410911387 ecr 412137722], length 0
+23:39:00.822868 IP vm-brumadinho-mongodb.38740 > 172.19.0.25.1883: Flags [.], ack 6, win 457, options [nop,nop,TS val 410911387 ecr 412137722], length 0
+
