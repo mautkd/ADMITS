@@ -1,0 +1,3685 @@
+git checkout v0.4.2 -b v0.4.2
+
+https://github.com/dojot/docker-compose
+
+docker-compose up -d
+
+iptables -A INPUT -p tcp --dport 8000 -j ACCEPT
+
+
+-------------------------------------------------------------------------------------------------
+VM-UDIA-DOJOT
+usuario: dojot
+
+VM-BRUMADINHO-MONGODB
+usuario: mongodb1
+
+VM-MARIANA-MONGODB
+usuario: mongodb2
+
+
+-------------------------------------------------------------------------------------------------
+
+https://www.embarcados.com.br/introducao-a-plataforma-dojot/
+
+
+
+1 - sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+2 - sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
+3 - sudo apt install docker.io
+
+
+Após finalizada, a instalação pode ser validada com:
+docker run hello-world
+
+
+sudo docker kill 8098a09e49f8
+
+
+HEALTHCHECK --interval=15s --timeout=30s CMD curl --fail http://localhost:8000/pools || exit 1
+
+http://192.168.100.61:8000/
+
+
+iptables -A INPUT -p tcp --dport 6432 -j ACCEPT
+
+
+
+docker run --rm -d \
+    --name=elasticsearch1 \
+    --health-cmd="curl --silent --fail localhost:9200/_cluster/health || exit 1" \
+    --health-interval=50s \
+    --health-retries=30 \
+    --health-timeout=200s \
+    elasticsearch1:5.5
+
+
+ERROR: for postgres-users  Container  is unhealthy.
+
+ERROR: for kong-migration  Container  is unhealthy.
+
+ERROR: for auth  Container  is unhealthy.
+
+ERROR: for apigw  Container  is unhealthy.
+ERROR: Encountered errors while bringing up the project.
+
+
+acompanhar respostas = https://github.com/dojot/dojot/issues/654
+
+
+udo pip install -r requirements.txt
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+deu certo
+
+
+1 - sudo git clone https://github.com/dojot/docker-compose.git
+
+2 - cd docker-compose
+
+3 - sudo git checkout v0.5.1 -b v0.5.1
+3 - sudo git checkout v0.4.2 -b v0.4.2
+
+4 - sudo docker-compose up -d
+
+
+docker engine 17.12  (19.03.8)
+docker-compose 1.18  (1.25)
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+Pesquisar uma porta no iptables
+
+sudo iptables -L | grep 1883
+
+LIberando porta no iptables
+	sudo iptables -A INPUT -p tcp --dport 1883 -j ACCEPT
+
+----------------------------------------------------------------------------------------------------------------------------------------
+https://www.embarcados.com.br/tls-na-plataforma-dojot/
+
+Adicionar certificado ao device
+
+1 - Acess o diretocio ->certificate-retriever
+
+--Vincular o certificado com scirpt python modificando o ID do device
+2 - python3 generateLoginPwd.py http://localhost:8000 bb3281 IOTmidCA
+
+http://localhost:8000 5e8262 IOTmidCA
+----------------------------------------------------------------------------------------------------------------------------------------
+
+sudo mosquitto_pub -i ‘admin:5e8262’ -t /admin/5e8262/attrs -p 8883 -m ‘{"temperatura":23}’ --cafile ./certificate-retriever/certs/IOTmidCA.crt --cert ./certificate-retriever/certs/5e8262.crt --key ./certificate-retriever/certs/5e8262.key
+----------------------------------------------------------------------------------------------------------------------------------------
+
+scritp de variação de valores - https://www.embarcados.com.br/mqtt-protocolos-para-iot/
+
+----------------------------------------------------------------------------------------------------------------------------------------
+reiniciar servidor mosquitto
+
+sudo service mosquitto restart
+
+
+Apagar diretorio com tudo dentro 
+
+	sudo rm -rf diretorio/
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+FUNCIONA
+mosquitto_pub -i ‘admin:5e8262’ -t /admin/5e8262/attrs -p 8883 -m ‘{"temperatura":23}’ --cafile ./certs/IOTmidCA.crt --cert ./certs/5e8262.crt --key ./certs/5e8262.key
+
+mosquitto_pub -i ‘admin:7895db’ -t /admin/7895db/attrs -p 8883 -m ‘{"temperatura":23}’ --cafile ./certs/IOTmidCA.crt --cert ./certs/7895db.crt --key ./certs/7895db.key
+
+
+mosquitto_pub -i ‘admin:5e8262’ -t /admin/2b81d7/attrs -p 1883 -m ‘{"Temperatura":22}’
+
+python3 generateLoginPwd.py http://localhost:8000 7895db IOTmidCA
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+https://www.youtube.com/watch?v=71NwPbcTyV0   --10:09
+
+
+
+
+python3 generateLoginPwd.py http://localhost:8000 5e8262 IOTmidCA
+
+
+
+arthur comando
+mosquitto_pub -t /admin/5e8262/attrs -m '{"temperatura": 36.5}'
+mosquitto_pub -t /admin/a3a89/attrs -m '{"umidade": 36}'
+f5e44f
+
+
+mosquitto_pub -t /admin/f5e44f/attrs -m '{"temperatura": 36.5}'
+
+
+
+
+mosquitto_pub -t /admin/78fdb9/attrs -m '{"temperatura": 36.5}'
+mosquitto_pub -t /admin/fd5df3/attrs -m '{"temperatura": 36.5}'
+
+
+7 - sudo mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/78fdb9/attrs -m '{"temperatura": 36.5}'
+8 - sudo mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/89008f/attrs -m '{"umidade": 100}'
+
+
+teste - sudo mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/f5e44f/attrs -m '{"temperatura": 36.5}'
+
+teste 2 - sudo mosquitto_sub -h localhost -p 1883 -u admin:89008f -t admin:89008f/config -q 1
+	  sudo mosquitto_sub -h 192.168.100.125 -p 1883 -u admin:89008f -t admin:89008f/config -q 1
+
+teste 3 - sudo mosquitto_pub -h 192.168.100.125 -t /admin/89008f/attrs -p 8883 -m '{"umidade": 10.6}'
+teste 4 - sudo mosquitto_pub -h 192.168.100.125 -t /admin/78fdb9/attrs -p 1883 -m '{"tempertaura": 10.6}'
+
+Teste para Verne MQTT
+ 
+	1 -  sudo mosquitto_pub -h localhost -p 1883 -u admin:78fdb9 -t admin:78fdb9/attrs -m '{"temperatura": 10.6}' -q 1
+	2 -  sudo mosquitto_pub -h 192.168.100.125 -p 1883 -u admin:78fdb9 -t admin:78fdb9/attrs -m '{"temperatura": 10.6}' -q 1
+	3 -  sudo mosquitto_pub -h 192.168.100.125 -p 1883 -u admin:78fdb9 -t admin:78fdb9/config -m '{"temperatura": 10.6}' -q 1
+	4 -  sudo mosquitto_pub -p 1883 -u admin:78fdb9 -t admin:78fdb9/attrs -m '{"temperatura": 10.6}' -q 1
+	5 -  sudo mosquitto_pub -u admin:78fdb9 -t admin:78fdb9/attrs -m '{"temperatura": 10.6}' -q 1
+	6 -  sudo mosquitto_pub -h localhost -p 1883 -u admin:78fdb9 -t admin:78fdb9/attrs -m '{"temperatura": 10.6}' -q 1
+	7 -  sudo mosquitto_pub -h 192.168.100.125 -p 1883 -u admin:78fdb9 -t admin:78fdb9/attrs -m '{"temperatura": 10.6}' -q 1
+
+teset para Mosca
+
+	1 - mosquitto_pub -h localhost -t /admin/f5e44f/attrs -p 1883 -m '{"temperatura": 10.6}'
+	2 - mosquitto_pub -h 192.168.100.125 -t /admin/f5e44f/attrs -p 1883 -m '{"temperatura": 10.6}'
+
+	1 - sudo mosquitto_pub -h localhost -t /admin/f5e44f/attrs -p 1883 -m '{"temperatura": 10.6}'
+	2 - sudo mosquitto_pub -h 192.168.100.125 -t /admin/f5e44f/attrs -p 1883 -m '{"temperatura": 10.6}'
+	3 - sudo mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/f5e44f/attrs -m '{"temperatura": 36.5}'
+
+
+
+validado - sudo mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/18d225/attrs -m '{"temperatura": 36.5}'
+	   sudo mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/f5e44f/attrs -m '{"temperatura": 100}'
+											
+
+
+--liberando porta 1888 no iptables
+
+	sudo iptables -A INPUT -p tcp --dport 1883 -j ACCEPT
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+documentação dojoto - https://dojotdocs.readthedocs.io/pt_BR/latest/using-api-interface.html#sending-messages
+
+
+	MOSCA - mosquitto_pub -h localhost -t /admin/0998/attrs -p 1883 -m '{"temperature": 10.6}'
+	VERNE - mosquitto_pub -h localhost -p 1883 -u admin:0998 -t admin:0998/attrs -m '{"temperature": 10.6}' -q 1
+	VERNE - mosquitto_pub  -h localhost -p 8883 -t <tenant>:<deviceId>/attrs  -m '{"attr_example": 10}' --cert <device .crt file> --key <device .key file> --cafile <ca .crt file>
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 4369/tcp, 
+0.0.0.0:1883->1883/tcp, 
+8080/tcp, 
+8888/tcp, 9100-9109/tcp,
+ 0.0.0.0:8883->8883/tcp, 
+44053/tcp   dojot_iotagent-mqtt_1
+
+
+--Instalando certificado nos dispositivos IOT
+
+	sudo apt install git curl jq openssl
+	sudo git clone https://github.com/dojot/certificate-retriever.git
+	cd certificate-retriever
+	mkdir certs
+
+--Agora rodar o scrip para criar o certificado modificando id do device
+	
+	sudo python3 generateLoginPwd.py http://192.168.100.125:8000 78fdb9 IOTmidCA
+
+
+
+
+parou na sexta - https://dojotdocs.readthedocs.io/_/downloads/dojotdocs-ptbr/pt_BR/latest/pdf/
+https://github.com/dojot/dojot/tree/v0.5.1/tools/certreq
+https://www.embarcados.com.br/tls-na-plataforma-dojot/
+
+
+
+
+
+
+---------------------------------------------------------------------------
+enviar para host externo
+
+mosquitto_pub -h 10.2.11.91 -t /dojot/5e8262/attrs -m '{"temperatura": 34}'
+
+
+localhost
+mosquitto_pub -t /admin/7df99b/attrs -m '{"temperatura": 36.5}'
+
+
+
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+Listando as redes do docker
+
+	sudo docker network ls
+
+listando as configurações de uma rede docker
+
+	sudo docker inspect nome_rede inspect
+	 sudo docker inspect dojot_default
+
+Acessar mongodb externo
+
+	mongo -u usuário-da-base -p senha-da-base host-de-conexao/nome-da-base
+	mongo -u meusite02 -p H1kela41 mongo71-farm68.kinghost.net/meusite02
+
+OBter o ID de um container
+	
+	sudo docker ps (listar os container)
+	sudo docker inspect nome_container
+
+
+
+Acessar um container diretamente (precisa do id do container
+
+
+	docker exec -i -t 0e94a3329e58 bash
+	docker exec -u 0 -it 0e94a3329e58 bash
+	 sudo docker exec -ti --user root 107f869a10ef /bin/bash  (acessar container como root)
+
+Acessar arquivo de configuração do MongoDB dentro do container (apos acessar como root)
+
+	apt-get update
+	apt-get install nano
+	nano /etc/mongod.conf.orig  
+	Neste arquivo modificque 
+		bindIp: 0.0.0.0
+		replication:
+			replSetName: "colantoni"
+	salve o arquivo
+
+
+
+
+
+instalar ping na maquina dentro do docker
+
+	1) apt-get update
+
+	2) apt-get install iputils-ping
+
+Instalar vim dentro do container
+1- apt-get update
+2- apt-get install vim
+
+
+
+
+Agora pare o container
+	sudo docker stop 0e94a3329e58 
+Subia novamente o container
+	sudo docker-compose up -d
+
+Mapear uma porta em um container
+	docker container run -it --rm -p 80:8080 python
+	sudo docker container run -it --rm -p 27017:27017 0e94a3329e58 
+
+Adicionar o mongoDb da maquina Dojot ao cluster
+
+	Na maquina PRIMARY que é o master do cluster, acesse o Shell do Mongodb
+	rs.add("192.168.100.61:27017")
+
+------------------------------------------------------------------------------------------------------
+
+Dentro do container docker - Mongodb
+
+reiniciando servico mongod
+	/etc/mongod.conf.orig stop
+
+Agora vou forçar o mongodb a iniciar com meu novo arquivo de configuração
+	mongod --config /etc/mongod.conf.orig &
+
+
+584e42295c75  persisteter v.0.4.2
+010735625f13 history
+
+------------------------------------------------------------------------------------------------------
+
+wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | apt-key add 
+
+
+rs.initiate(
+   {
+      _id: "shard03",
+      version: 1,
+      members: [
+         { _id: 0, host : "mongo-shard3a:27020" },
+         { _id: 1, host : "mongo-shard3b:27020" },
+      ]
+   }
+)
+
+mongo/mongo-router2
+
+
+
+
+
+770b32461eb7 	 mongo-shard3a
+8ec7a90f854c 	 mongo-shard2a
+3df669285342 	 mongo-shard1a
+11f284bbfc32 	 mongo-config03
+a0a378dd0a77 	 mongo-config02
+2db5f35b8628 	 mongo-config01
+aff51e613c7c	 mongo-router2
+		
+sudo docker exec -ti --user root fbda5c4e6431 /bin/bash
+
+
+
+--listar container pelo status 
+
+	sudo docker ps -a -f status=exited
+
+
+
+-------------------------------------------
+Instalar ping dentro do container docker
+
+	apt-get update
+	apt-get install iputils-ping
+-------------------------------------------
+Remover imagem docker
+
+	sudo docker images –a  (listar imagens)
+	sudo docker image rmi <image_id>
+
+
+
+
+-------------------------------------------
+----------------------------------------------------------------------------------------------------
+Criando uma rede Overlay no Docker
+
+Comando de referencia
+
+	docker network create -d overlay --opt encrypted pets-overlay
+	docker service create --network pets-overlay --name db redis
+	docker service create --network pets-overlay -p 8000:5000 -e DB=db --name web chrch/web
+
+comandos personalidados para minha rede
+
+	sudo docker swarm init
+	sudo docker swarm init --advertise-addr ens38  (especificando a interface a ser utilizada)
+	sudo docker network create -d overlay --opt encrypted colantoni-overlay
+	sudo docker service create --network colantoni-overlay --name db mongo
+	sudo docker service create --network colantoni-overlay -p 27017:27017 -e DB=db --name web chrch/web
+	sudo docker service create --network colantoni-overlay -p 27017:27017 -e DB=db --name mongo 
+
+Criando replicas de um serviço
+
+exemplo:	sudo docker service scale php-fpm=10
+	   	sudo docker service scale db=2
+		sudo docker service scale service_mongodb=2
+
+----------------------------------------------------------------------------------------------------
+
+
+Para utilizar a rede Overlay é preciso iniciar o socker warm 
+
+	sudo docker swarm init
+
+
+	Swarm initialized: current node (i1jilsaenassqfm3qcp0r6ez4) is now a manager.
+
+	To add a worker to this swarm, run the following command:
+
+   	  docker swarm join --token SWMTKN-1-3i51ids3etpxhg207s49f0x1u6xhnxtuvh8l4j94iizcj10dip-8mx4zc7cl5sappo2oe93eupe9 192.168.100.61:23
+
+	To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+
+
+----------------------------------------------------------------------------------------------------
+
+
+
+
+Criadno rede Bridge no Docker
+
+	Comando referencia
+
+	docker network create -d bridge mybridge
+ 	docker run -d --net mybridge --name db redis
+ 	docker run -d --net mybridge -e DB=db -p 8000:5000 --name web chrch/web
+
+	comandos personalizados
+
+	sudo docker network create -d bridge colantoni-bridge
+ 	sudo docker run -d --net colantoni-bridge --name dojot_mongodb_1 mongo
+ 	sudo docker run -d --net colantoni-bridge -e DB=dojot_mongodb_1 -p 27017:27017 --name mongo-config01 chrch/web
+
+
+
+
+
+
+Rodar a imagem com rede selecionada
+	
+	sudo docker run -it --net=colantoni-overlay dojot/mongo:3.2  /bin/bash
+
+
+
+Copiar arquivo de configuração docker-compose.yml para testes
+
+	sudo cp /docker-compose/docker-compose.yml /docker-compose/docker-compose-colantoni.yml
+	
+------------------------------------------------------------------------------------------------------
+
+Criando rede overlay swarm com mongodb
+
+teste - instalando docker com 1 linha
+
+	sudo snap install docker
+
+
+1° - Instalando docker nas maquinas
+
+	sudo apt update
+	sudo apt upgrade
+	sudo apt-get install  curl apt-transport-https ca-certificates software-properties-common
+	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+	sudo apt update
+	apt-cache policy docker-ce
+	sudo apt install docker-ce
+	sudo systemctl status docker
+
+2° Apos instalar adicione seu usuario ao grupo de permissão docker
+
+	consultar se o grupo existe - cat /etc/group | grep docker
+	criar o grupo - sudo groupadd docker
+	adicionar seu usuario ao grupo - sudo usermod -aG docker $USER
+					- sudo usermod -aG mongodb1 $USER
+					 - sudo usermod -aG mongodb2 $USER
+	consultar grupos do usuario - groups $USER
+	reinicie a maquina para conseguir a permissão
+
+Instalando docker-compose
+
+	sudo su
+	curl -L https://github.com/docker/compose/releases/download/1.25.5/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+	chmod +x /usr/local/bin/docker-compose
+	docker-compose -v
+
+2° - Baixando imagem do mondob
+
+	sudo docker pull mongo
+
+3° - Iniciando o swarm
+
+	sudo docker swarm init
+
+	comando recebido para adicionar menbros a rede overlay
+	 docker swarm join --token SWMTKN-1-53tcpmrfhi1f0p0490p15kw56x49keg84oaxgdvugz9dm40mik-3enedhpnhojt80oic32j4695u 192.168.100.125:2377
+
+como master
+	sud docker swarm join --token SWMTKN-1-53tcpmrfhi1f0p0490p15kw56x49keg84oaxgdvugz9dm40mik-3enedhpnhojt80oic32j4695u 192.168.100.125:2377
+
+
+4° Criando rede com driver overlay
+	
+	sudo docker network create -d overlay --opt encrypted colantoni-overlay
+
+5° Criando servico para compartilhar rede overlay
+
+	sudo docker service create --network colantoni-overlay --name db mongo
+
+6° Consultando NOS que constituem a rede swarm
+	
+	sudo docker node ls
+
+7° Subindo imagem do mongodb no docker que é MASTER da rede swarm
+
+	sudo docker run mongo
+
+8° Escalando replicas de um serviço 
+
+exemplo:	 docker service scale nome-serviço=10
+	sudo  docker service scale dojot_auth=2
+	sudo  docker service scale dojot_auth-redis=2
+	sudo  docker service scale dojot_backstage=2
+	sudo  docker service scale dojot_cron=2
+	sudo  docker service scale dojot_data-broker-redis=2
+	sudo  docker service scale dojot_data-manager=2
+	sudo  docker service scale dojot_device-manager=2
+	sudo  docker service scale dojot_device-manager-redis=2
+	sudo  docker service scale dojot_ejbca=2
+	sudo  docker service scale dojot_flowbroker=2
+	sudo  docker service scale dojot_flowbroker-context-manager=2
+	sudo  docker service scale dojot_flowbroker-redis=2
+	sudo  docker service scale dojot_gui=2
+	sudo  docker service scale dojot_history=2
+	sudo  docker service scale dojot_image-manager=2
+	sudo  docker service scale dojot_iotagent-lwm2m=2
+	sudo  docker service scale dojot_iotagent-mqtt=2
+	sudo  docker service scale dojot_kafka=2
+	sudo  docker service scale dojot_minio=2
+	sudo  docker service scale dojot_mongodb=2
+	sudo  docker service scale dojot_mosca-redis=2
+	sudo  docker service scale dojot_persister=2
+	sudo  docker service scale dojot_postgres=2
+	sudo  docker service scale dojot_rabbitmq=2
+	sudo  docker service scale dojot_zookeeper=2
+	sudo  docker service scale dojot_apigw=2
+
+
+
+sudo docker network create --driver bridge --subnet=192.168.100.0/24 --gateway=192.168.1000.1 redelocal 
+
+ 
+
+9° Acessar um container como sudo
+
+	sudo docker exec -ti --user root 0fc06d8fc268 /bin/bash
+
+10° Consultar serviços rodando no docker
+
+	sudo docker service ls
+
+11° -  Para adicionar mais um NO no cluster porem agora como Manager do Swarm
+
+	docker swarm join-token worker  (ira retorar a chave token para master)
+	docker swarm join --token SWMT8o 192.168.0.33:2377
+	This node joined a swarm as a manager.
+
+12° - Subindo projeto com docker-compose em modo stack para cluster swarmn
+
+	 sudo docker stack deploy -c docker-compose.yml dojot
+
+OBS: o docker-version deve ser 3.4, os Depens-on devem ser comentados com #, no final do arquivo o NAME deve ser comentado com #
+
+
+13° - Consultar stack do docker
+	
+	sudo docker stack ps dojot
+
+------------------------------------------------------------------------------------------------------
+Numeraçãod e linhas no VIM
+
+	sudo vim nome-arquivo
+	ESC
+	:set number
+	
+para Salvar no VIM
+
+	ESC
+	salvar ->  :wq!
+	Sem salvar->  :q!
+
+MOdo de insert
+
+	i
+
+sudo docker exec -ti --user root 21d9ad87cc02 /bin/bash
+
+sudo docker exec -ti --user root fa2757cfa350 /bin/bash
+sudo docker exec -ti --user root cf88653e8665 /bin/bash
+
+
+
+-------------------------------------------
+Instalar ping dentro do container docker
+
+	apt-get update
+	apt-get install iputils-ping
+
+Instalar ifconfig dentro do container docker
+	apt-get update
+	apt-get install net-tools	
+-------------------------------------------
+rs.add ("10.0.1.16:27018")
+------------------------------------------------------------------------------------------------------
+
+LImpando docker
+
+
+    sudo docker container prune
+    sudo docker image prune
+    sudo docker network prune
+    sudo docker volume prune
+    sudo docker image prune -a
+    sudo docker system prune --all
+
+Remover servico docker
+
+	sudo docker service rm 1hmpnpmqc9wp   
+------------------------------------------------------------------------------------------------------
+
+Monitor memoria RAM
+
+suto apt-get install htop
+
+
+------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------ex
+
+Instalar docker-compose
+
+	sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+	sudo chmod +x /usr/local/bin/docker-compose
+	docker-compose --version
+------------------------------------------------------------------------------------------------------
+Outra forma criar rede overlay
+
+	sudo docker network create --attachable -d overlay colantoni-overlay2
+
+Rodando container em uma rede overlay
+	sudo docker run -itd --network=colantoni-overlay2 dojot/mongo
+	sudo docker run -itd --network=dojot_colantoni-overlay2 7a2b0e6f4003
+
+fb885d89ea5c
+------------------------------------------------------------------------------------------------------
+Executar comando dentro de um container rodando sem entrar no container
+
+	sudo docker container exec 01c71c1eb09e ls -g
+	sudo docker container exec 01c71c1eb09e ls -liah
+	sudo docker container exec 01c71c1eb09e servi
+
+------------------------------------------------------------------------------------------------------
+sudo nano /etc/apt/sources.list   (comente todos os pacotes com DEB CDROM)
+
+
+version: '3.4'
+services:
+    app:
+        image: mongo
+        container_name: mongodb
+        ports:
+          - 27017:27917
+        bindip:
+          - 0.0.0.0
+        replication:
+         replSetName: "colantoni"
+
+
+
+
+HOSTNAME=mongodb1
+------------------------------------------------------------------------------------------------------
+
+Conectando um conteiner em execução a rede
+
+	sudo docker network connect colantoni-overlay2 cf88653e8665
+
+Acessando o container (dojot/mongo)
+	sudo docker exec -ti --user root cf88653e8665 /bin/bash
+	sudo docker exec -ti --user root 3915a6649cf0 /bin/bash
+	
+------------------------------------------------------------------------------------------------------
+Exemplo:
+	sudo docker run --name mongo-conf02 -p 27017:27017 --net dojot_colantoni-overlay -d mongo mongod --configsvr --replSet colantoni --port 27017
+
+INiciando container mongodb do dojot com a configuração do cluster
+
+	sudo docker run --name dojot_mongodb_3 --net colantoni-overlay2 -d fb885d89ea5c mongod --configsvr --replSet colantoni-cluster --port 27017
+
+
+
+------------------------------------------------------------------------------------------------------
+AGora vou iniciar o cluster do mongodb no container do dojot/mongodb
+
+1 -  Acessando o s
+
+	sudo docker exec -ti --user root 04a2f1888217 /bin/bash   (dojot)
+	sudo docker exec -ti --user root 189272af21f2 /bin/bash   (dojot02)
+
+2 -  acessando o mongo dentro do container
+
+	mongo
+
+
+
+3 - Iniciando o cluster do mongodb
+
+	rs.initiate(
+   {
+      _id: "colantoni",
+      configsvr: true,
+      version: 1,
+      members: [
+         { _id: 0, host : "10.0.2.4:27017" },
+	 { _id: 1, host : "10.0.2.11:27017" }
+      ]
+   })
+
+rs.add("10.0.2.2:27017")
+rs.add("192.168.100.126:27017")
+
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+Conectando um container a uma rede especifica
+
+	sudo docker network connect dojot_colantoni-overlay c26f33de329d
+
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+
+Diretorios de container
+
+
+Metodo 01 :
+  
+Definindo diretorio para salvar no container
+
+	sudo docker container run -v /var/lib/container1:/var ubuntu   (dentro do container sera salvo em /var)
+
+
+
+
+Metodo 02:
+
+Criando um container para guardar as informações
+
+	sudo docker create -v /dbdata --name dbdata postgres /bin/true
+
+Para consumir esse volume do container basta utilizar o comando:
+
+	docker container run -d --volumes-from dbdata --name db2 postgres
+
+
+
+Metodo 03:
+
+Mapeando volumes
+	
+	sudo docker volume create --name dbdata
+
+
+A associação do volume ao container
+	
+		sudo docker container run -d -v dbdata:/var/lib/data mongo
+
+teste ok -      sudo docker run --name mongo-config0001 --net mongo-shard -d -v dbdata:/var/lib/data mongo mongod --configsvr --replSet configserver --port 27017 
+
+		sudo docker run --name mongo-shard1a --net mongo-shard -d -v dbdata:/var/lib/data mongo mongod --port 27018 --shardsvr --replSet shard01
+
+
+Consulta tamanho do volume
+
+	sudo docker system df -v
+
+Adicionar hots a rede swarm
+
+	Como worker -  sudo docker swarm join-token worker
+
+	Como Master - sudo docker swarm join-token manager
+
+
+
+
+Acessando container diretamente
+
+	sudo docker exec -ti --user root dfb4d0dbcb68 /bin/bash
+
+
+Subindo container que parou
+	sudo docker container start 354a06647424
+
+
+
+Teste: 
+
+INiciando o deploy no volume compartilhado
+
+	exemplo: docker stack deploy --compose-file docker-compose.yml -c docker-compose.prod.yml vossibility
+
+	sudo docker container run -d -v dbdata:/var/lib/data 3915a6649cf0  
+
+
+URL: https://stack.desenvolvedor.expert/appendix/docker/armazenamento.html
+
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+
+
+grep "dbdata" /var/lib/*
+
+
+
+
+
+
+--Monitorar portas em execucacao
+
+	sudo netstat -tulpn
+	sudo ss -tulpn
+
+
+
+------------------------------------------------------------------------------------------------------------------
+--ativando monitoramento do cluster Mongodb
+
+	sudo docker ps
+	sudo docker exec -ti --user root ef6114c60340 /bin/bash
+	mongo
+	db.enableFreeMonitoring()
+
+	sera gerado um link
+		https://cloud.mongodb.com/freemonitoring/cluster/5DKTDN5EGJMO5SLNWGNWZJ4GLPONGIRI
+
+------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+7 - sudo mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/78fdb9/attrs -m '{"temperatura": 36}'
+8 - sudo mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/a7841c/attrs -m '{"umidade": 100}'
+9 - sudo mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/a7841c/attrs -m '{"teste": 'texto'}'
+
+teste com verne:
+
+	sudo mosquitto_pub -h 192.168.100.125 -p 1883 -m "35" -t "Sensor de Temperatura" -d
+	sudo mosquitto_pub -h 192.168.100.125 -p 1883 -m "35" -t "78fdb9" -d
+	sudo mosquitto_pub -h 172.19.0.19 -p 1883 -m "35" -t "78fdb9" -d
+
+
+teste 2
+
+	sudo mosquitto_sub -h 10.0.0.1 -p 1883 -v -t "topic1"
+	sudo mosquitto_sub -h 172.19.0.19 -p 1883 -v -t "topic1"
+	sudo mosquitto_sub -h 172.19.0.19 -p 1883 -v -t "78fdb9"
+
+teste 3
+
+	mosquitto_pub -h 172.19.0.19 -p 1883 -t /admin/78fdb9/attrs -m '{"temperatura": 36}'
+
+
+--verificar se a porta 1883 esta sendo ouvida
+
+	netstat -tupln | grep 1883
+	netstat -tupln | grep 8883
+
+
+
+--Verne com certificado
+	sudo mosquitto_pub -d -h localhost -p 8883 --tls-version tlsv1.2 -t test -m "test" --cafile ca.crt
+	sudo mosquitto_pub -d -h localhost -p 8883 --tls-version tlsv1.2 -t temperatura -m "35" --cafile ca.crt
+	sudo mosquitto_pub -h 192.168.100.125 -u admin -P admin -t /admin/78fdb9/attrs -m "{"temperatura": 36}"
+
+	--1 teste certificado
+
+		sudo mosquitto_sub -h 192.168.100.125 -d --cafile ca.crt -p 8883 -u admin -P admin -t /admin/78fdb9/attrs -m "{"temperatura": 36}"
+
+
+--documentação DOJOT para publicar Vern
+
+     #enviando
+	sudo mosquitto_pub -h localhost -p 1883 -u admin:0998 -t admin:0998/attrs -m '{"temperature": 10.6}' -q 1
+	sudo mosquitto_pub -h localhost -p 1883 -u admin:78fdb9 -t admin:78fdb9/attrs -m '{"temperatura": 10.6}' -q 1
+	sudo mosquitto_pub -h 192.168.100.125 -p 1883 -u admin:78fdb9 -t admin:78fdb9/attrs -m '{"temperatura": 10.6}' -q 1
+ 
+     #recebendo mensagem
+	mosquitto_sub -h localhost -p 1883 -u admin:0998 -t admin:0998/config -q 1
+	sudo mosquitto_sub -h localhost -p 1883 -u admin:78fdb9 -t admin:78fdb9/config -q 1
+	sudo mosquitto_sub -h 192.168.100.125 -p 1883 -u admin:78fdb9 -t admin:78fdb9/config -q 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+networks:
+  frontend:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
+  backend:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16
+
+
+ipam:
+      config:
+        - subnet: 192.168.100.0/24
+
+
+daemon.json
+
+{
+  "bip": "192.168.100.200/26",
+  "fixed-cidr": "192.168.100.2000/26",
+  "fixed-cidr-v6": "2001:db8::/64",
+  "mtu": 1500,
+  "default-gateway": "192.168.100.200",
+  "default-gateway-v6": "2001:db8:abcd::89",
+  "dns": ["192.168.100.200","192.168.100.201"]
+}
+
+
+
+
+rs.initiate(
+   {
+      _id: "configserver",
+      configsvr: true,
+      version: 1,
+      members: [
+         { _id: 0, host : "mongo-config01:27017" },
+         { _id: 1, host : "mongo-config02:27017" },
+         { _id: 2, host : "mongo-config03:27017" }
+      ]
+   }
+)
+
+
+
+iniciando um container
+
+	sudo docker container start 0c1698345f84
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+version: '3.7'
+networks:
+  dojot_colantoni-overlay:
+    driver: overlay
+services:
+   mongo-1.mongo:
+    hostname: mongo-1.mongo
+    container_name: mongo-01.mongo
+    image: mongo
+    command: bash -c "/usr/bin/mongod --keyFile /data/file.key --replSet colantoni-replica --journal --bind_ip_all" 
+    ports:
+    - "27017:27017"
+    restart: always
+    networks:
+      - dojot_colantoni-overlay
+    volumes:
+    - "./scripts/setup.sh:/scripts/setup.sh"
+    - "./scripts/file.key:/data/file.key"
+
+
+
+sudo docker service create --name service_mongodb mongo
+
+	sudo docker swarm init
+	sudo docker network create --attachable -d overlay colantoni-overlay
+	sudo docker service create --network colantoni-overlay --name service_mongodb mongo
+	sudo docker volume create --name dbmongodata
+
+	sudo docker volume create --name dojot_mongodb-volume 
+	sudo docker volume create --name dojot_mongodb-cfg-volume
+
+	sudo docker stack deploy -c docker-compose.yml dojot
+
+ volumes:
+      - mongodb-volume:/data/db
+      - mongodb-cfg-volume:/data/configdb
+
+
+
+
+	sudo docker run --name mongo-config01 -d -v dbmongodata:/var/lib/data mongo mongod --configsvr --replSet configserver --port 27017
+	sudo docker run --name mongo-config02 --net colantoni-overlay --restart always -d -v dbmongodata:/var/lib/data mongo mongod --configsvr --replSet configserver --port 27017
+	sudo docker run --name mongo-config03 --net colantoni-overlay --restart always -d -v dbmongodata:/var/lib/data mongo mongod --configsvr --replSet configserver --port 27017
+
+--Manter o container rodando msm apos reiniciar servidor
+	sudo docker update --restart always 75a1f4c48248
+
+--ou durante a criação do container
+	sudo docker run --name mongodb7 --net dojot_colantoni-overlay --restart always -d  -v mongodb-volume7:/data/db mongo mongod --port 27017  --replSet colantoni  
+
+
+
+
+
+	sudo docker exec -ti --user root 2db5f35b8628 /bin/bash
+	
+	rs.initiate(
+   {
+      _id: "configserver",
+      configsvr: true,
+      version: 1,
+      members: [
+         { _id: 0, host : "mongo-config01:27017" },
+         { _id: 1, host : "mongo-config02:27017" },
+         { _id: 2, host : "mongo-config03:27017" }
+      ]
+   }
+)
+
+
+	sudo docker run --name mongo-shard1a --net colantoni-overlay -d  -v dbmongodata:/var/lib/data mongo mongod --port 27018 --shardsvr --replSet shard01
+	sudo docker run --name mongo-shard1b --net colantoni-overlay -d  -v dbmongodata:/var/lib/data mongo mongod --port 27018 --shardsvr --replSet shard01
+
+	sudo docker run --name mongo-shard2a --net colantoni-overlay -d  -v dbmongodata:/var/lib/data mongo mongod --port 27019 --shardsvr --replSet shard02
+	sudo docker run --name mongo-shard2b --net colantoni-overlay -d  -v dbmongodata:/var/lib/data mongo mongod --port 27019 --shardsvr --replSet shard02
+
+	sudo docker run --name mongo-shard3a --net colantoni-overlay -d -v dbmongodata:/var/lib/data mongo mongod --port 27020 --shardsvr --replSet shard03
+	sudo docker run --name mongo-shard3b --net colantoni-overlay -d -v dbmongodata:/var/lib/data mongo mongod --port 27020 --shardsvr --replSet shard03
+
+
+	sudo docker service scale service_mongodb=2
+
+
+Mongo shard 1
+	rs.initiate({_id:"shard01",version: 1,members:[{_id: 0,host :"mongo-shard1a:27018"},{_id: 1, host:"mongo-shard1b:27018" },]})
+
+Mongo shard 2
+	rs.initiate({_id: "shard02",version: 1,members: [{ _id: 0, host : "mongo-shard2a:27019" },{ _id: 1, host : "mongo-shard2b:27019" },]})
+
+Mongo shard 3
+	rs.initiate({_id: "shard03",version: 1,members: [{ _id: 0, host : "mongo-shard3a:27020" },{ _id: 1, host : "mongo-shard3b:27020" },]})
+
+
+
+Subir roteadores para os shards fiquem acesssivies 
+	sudo docker run -p 27017:27017 --name mongo-router2 --net colantoni-overlay -d -v dbmongodata:/var/lib/data mongo mongos --port 27017 --configdb configserver/mongo-config01:27017,mongo-config02:27017,mongo-config03:27017 --bind_ip_all
+
+
+Adicionando outro host ao cluster swarm (host novo: dojot)
+
+	Como Master -  docker swarm join --token SWMTKN-1-43pvcqzxobttbiun153l5vy5w0wbhhtnbh9vwbh4ko1fjzcs8i-bhcaq0ksn40oc3jhbe30jhxg1 192.168.100.154:2377
+
+
+
+
+
+
+Criando um container mongodb para se conectar ao volume dbmongodata:/var/lib/data (no novo host = dojot)
+
+	sudo docker run --name mongo-shard1c -d -v dbmongodata:/var/lib/data mongo mongod --port 27018 --shardsvr --replSet shard01
+
+
+	
+
+
+Token para adicionar host a rede swarm 
+	Padrão - docker swarm join --token SWMTKN-1-1zx1fcn1qf5200gkinyc1wprn3ren70r6drvpa0kgsef19jeuw-7bgbhhokh22vlpq4wpvzdb89n 192.168.100.154:2377
+
+	teste - docker swarm join --token  192.168.100.154:2377
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--Teste de volume compartilhado em host diferente---------------------------------------------------------------------------------------------------
+
+HOST - dojot
+	sudo docker run --name mongo-shard1c --net colantoni-overlay -d  -v dbmongodata:/var/lib/data mongo mongod --port 27018 --shardsvr --replSet shard01
+	sudo docker run --name mongo-shard1d --net colantoni-overlay -d  -v dbmongodata:/var/lib/data mongo mongod --port 27018 --shardsvr --replSet shard01
+
+
+HOST -  Mongodb_cloud
+	sudo docker run --name cloud_02 --net colantoni-overlay -d -v dbmongodata:/var/lib/data mongo mongod --port 27030 --shardsvr --replSet colantoni
+
+
+rs.add("192.168.100.61:27018")
+
+
+
+
+
+
+
+novo teste - OK deu certo
+
+HOST - MOngodb1
+	sudo docker run --name mongo-shard1c --net colantoni-overlay -d  -v dbmongodata:/var/lib/data mongo mongod --port 27018 --shardsvr --replSet shard01
+
+HOST - Dojot
+	sudo docker run --name mongo-shard1d --net colantoni-overlay -d  -v dbmongodata:/var/lib/data mongo mongod --port 27018 --shardsvr --replSet shard01
+
+	
+
+
+Teste com swarm dojot
+
+HOST - MOngodb1
+	sudo docker run --name mongo-shard1c -d  -v dojot_mongodb-volume:/data/db mongo mongod --port 27017 --shardsvr --replSet shard01	
+	
+	sudo docker container start d6bef12ae167 --replSet shard01	
+
+
+
+HOST - MONGODB1 local teste
+	
+	sudo docker run --name mongodb3 --net dojot_colantoni-overlay --restart always  -d  -v mongodb-volume3:/data/db mongo mongod --port 27017  --replSet colantoni
+	sudo docker run --name mongodb4 --net dojot_colantoni-overlay --restart always  -d  -v mongodb-volume4:/data/db mongo mongod --port 27017  --replSet colantoni
+
+	sudo docker run --name mongodb5 --net dojot_colantoni-overlay --restart always  -d  -v mongodb-volume5:/data/db mongo mongod --port 27017  --replSet colantoni
+	sudo docker run --name mongodb6 --net dojot_colantoni-overlay --restart always  -d  -v mongodb-volume6:/data/db mongo mongod --port 27017  --replSet colantoni
+
+
+	sudo docker run --name mongodb9  --restart always  -d  -v mongodb-volume9:/data/db mongo mongod --port 27017  
+
+
+-e TZ=America/Fortaleza
+
+	sudo docker run --name mongodb7 --net dojot_colantoni-overlay --restart always  -d  -v mongodb-volume7:/data/db mongo mongod --port 27017  --replSet colantoni
+
+
+	sudo docker run --name mongodbCanada --net dojot_colantoni-overlay -d  -v mongodb-volume5:/data/db mongo mongod --port 27017  --replSet colantoni
+
+
+
+	sudo docker run --name teste --net dojot_colantoni-overlay -d  dojot/iotagent-mosca:v0.5.1 
+
+
+
+dojot/iotagent-mosca:v0.5.1
+
+5a4cea4736a0   dojot_default             bridge    local
+cc0adc24561a   dojot_flowbroker          bridge    local
+
+
+Adicionando com o ID do container
+	rs.add("192.168.100.61:27018")
+	rs.add("48abc9c4273b:27018")
+
+
+Habilitar mongodb secundario para leitura do banco
+
+rs.slaveOk()
+
+-------------------------------------------FIM---------------------------------------------------------------------------------------------------
+
+
+
+
+sudo mosquitto_pub -h 192.168.100.204 -p 1883 -t /admin/42f71b/attrs -m '{"temperatura": 55.5}'
+
+sudo mosquitto_pub -h 192.168.100.204 -p 1883 -t /admin/42f71b/attrs -m '{"umidade": 10.5}'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Mongodb com Mongo-express
+
+URL - https://renatogroffe.medium.com/mongodb-mongo-express-docker-compose-montando-rapidamente-um-ambiente-para-uso-824f25ca6957
+
+version: '3'
+
+services:
+  mongo-express:
+    image: mongo-express
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_BASICAUTH_USERNAME: colantoni
+      ME_CONFIG_BASICAUTH_PASSWORD: mongo2020
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: mongodb2021
+    links:
+      - mongodb
+    networks:
+      - colantoni-overlay
+
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: mongodb2021
+    ports:
+      - "27017:27017"
+    volumes:
+      -  /home/dojot/mongodb/:/data/db
+    networks:
+      - mongo-compose-network
+
+networks: 
+    colantoni-overlay:
+      driver: overlay
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+sudo docker volume create --name dojot_mongodb-volume
+	sudo docker volume create --name dojot_mongodb-cfg-volume
+
+
+
+
+
+rs.initiate(
+   {
+      _id: "colantoni",
+      version: 1,
+      members: [
+         { _id: 0, host : "mongodb:27017" },
+         { _id: 1, host : "mongodb2:27017" },
+      ]
+   }
+)
+
+
+eef2f83cd4b8 dojot_mongodb_arbitro_1
+031ff29f4c00 dojot_mongodb2_1
+9331c7af4abd dojot_mongodb_1
+
+ef6114c60340 mongodb4
+3a673c3ebc48 mongodb3
+
+
+rs.addArb("dojot_mongodb_arbitro_1:27017")
+rs.add("dojot_mongodb2_1:27017")
+rs.add("mongodb3:27017")
+rs.add("mongodb4:27017")
+
+rs.add("mongodb7:27017")
+
+
+
+
+-------------------------------------------------------
+
+--Modificando prioridades no arbitro mongodb
+
+	
+	cfg = rs.conf()
+
+  	cfg.members[0].priority = 5  
+  	cfg.members[1].priority = 0  
+	cfg.members[2].priority = 3
+	cfg.members[3].priority = 2
+	cfg.members[4].priority = 2
+
+	rs.reconfig(cfg, {force: true})
+
+--Definir novo Primary
+
+	cfg = rs.conf()
+	cfg.members[0].priority = 5
+	rs.reconfig(cfg)
+-----------------------------------------------------------
+
+
+cfg = rs.conf()
+  	cfg.members[0].priority = 5  
+  	cfg.members[1].priority = 0  
+	cfg.members[2].priority = 3 
+	cfg.members[3].priority = 2 
+	cfg.members[4].priority = 2 
+	cfg.members[5].priority = 2 
+	cfg.members[6].priority = 2 
+	cfg.members[7].priority = 2
+	
+rs.reconfig(cfg, {force: true})
+
+
+--Mongodb do Dojot
+
+1 - acesso container 
+	sudo docker exec -ti --user root /bin/bash
+2 - acesse mongo
+	mongo
+3 - habilite o secundario para realizar insert no cluster
+	rs.secondaryOk()
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
+Mongod 
+
+
+ rs.initiate(
+   {
+      _id: "colantoni",
+      version: 1,
+      members: [
+         { _id: 0, host : "dojot_mongodb_1:27017" ,priority : 0, slaveDelay : 5 },
+	 { _id: 1, host : "mongodb_arbitro:27018", arbiterOnly: true },
+         { _id: 2, host : "dojot_mongodb2_1:27017" ,priority : 1 },
+         { _id: 3, host : "mongodb3:27017" ,priority : 3 },
+	 { _id: 4, host : "mongodb4:27017" ,priority : 3}	 
+      ]
+   }
+)
+
+
+rs.initiate({ _id: "colantoni", members:[{_id:0,host:"192.168.100.84:27017"},{_id:1,host:"192.168.100.85:27017"},]})
+
+
+rs.conf({ _id: "colantoni",members: [{ _id: 1, host : "mongodb_arbitro:27018",arbiterOnly: true },{ _id: 2, host : "dojot_mongodb2_1:27017" ,priority : 1 },{ _id: 3, host : "mongodb3:27017" ,priority : 3 }, { _id: 4, host : "mongodb4:27017" ,priority : 3}, { _id: 5, host : "mongodb4:27017" ,priority : 5}]})
+
+rs.initiate(rs.config, {force: true})
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Mongodb Master --forçado
+
+singleNodeRepl:OTHER> rsconf = rs.conf()
+singleNodeRepl:OTHER> rsconf.members = [{_id: 0, host: "localhost:27017"}]
+[ { "_id" : 0, "host" : "localhost:27017" } ]
+singleNodeRepl:OTHER> rs.reconfig(rsconf, {force: true})
+{ "ok" : 1 }
+singleNodeRepl:OTHER>
+singleNodeRepl:SECONDARY>
+singleNodeRepl:PRIMARY>
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Esse funcionou graças a DEUS \o/
+
+
+  mongodb:
+    #image: dojot/mongo:3.2
+    image: mongo
+    restart: always
+    #restart: on-failure
+    user: "mongodb"
+    logging:
+      driver: json-file
+      options:
+        max-size: 20m
+        max-file: '5'
+    volumes:
+      - mongodb-volume:/data/db
+      - mongodb-cfg-volume:/data/configdb
+    environment:
+           MONGO_REPLICA_SET_NAME: colantoni
+    command: ["--replSet", "colantoni"]
+    networks:
+      - colantoni-overlay
+      - flowbroker
+      - default
+
+
+  mongodb2:
+    #image: dojot/mongo:3.2
+    image: mongo
+    restart: always
+    #restart: on-failure
+    user: "mongodb"
+    logging:
+      driver: json-file
+      options:
+        max-size: 20m
+        max-file: '5'
+    volumes:
+      - mongodb-volume2:/data/db
+      - mongodb-cfg-volume2:/data/configdb
+    environment:
+           MONGO_REPLICA_SET_NAME: colantoni
+    command: ["--replSet", "colantoni"]
+    networks:
+      - colantoni-overlay
+      - flowbroker
+      - default
+
+
+
+  mongodb_arbitro:
+    #image: dojot/mongo:3.2
+    image: mongo
+    restart: always
+    #restart: on-failure
+    user: "mongodb"
+    logging:
+      driver: json-file
+      options:
+        max-size: 20m
+        max-file: '5'
+    volumes:
+      - mongodb-volumeArb:/data/db
+      - mongodb-cfg-volumeArb:/data/configdb
+    environment:
+           MONGO_REPLICA_SET_NAME: colantoni
+    command: ["--replSet", "colantoni"]
+    networks:
+      - colantoni-overlay
+      - flowbroker
+      - default
+    ports:
+      - "27018:27018/tcp"
+
+
+
+volumes:
+  mongodb-volume:
+  mongodb-cfg-volume:
+  mongodb-volume2:
+  mongodb-cfg-volume2:
+  mongodb-volumeArb:
+  mongodb-cfg-volumeArb:
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+mongodb como um serviço - https://littlebit.me/jekyll/init/2018/09/10/docker-swarm-mongodb.html
+mongodb com secretes - https://medium.com/@marcoscordeirojr/mongodb-com-autentica%C3%A7%C3%A3o-utilizando-secrets-no-docker-swarm-7d0418bdb836
+
+traefik - https://www.mundodocker.com.br/traefik-e-docker-swarm/
+
+
+
+--sair no do cluster
+rs.stepDown()
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+mongodb com traefik  --https://gist.github.com/kanzitelli/1b9094ef91c51290c0b4809d51d41247
+
+
+version: '3'
+
+services:
+  reverse-proxy:
+    image: traefik:v2.0
+    container_name: traefik
+    command: --api --providers.docker
+    ports:
+      - "6969:80"
+      - "6970:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  api:
+    build: ./
+    restart: always
+    container_name: api
+    environment:
+      - API_DEBUGMODE=${API_GIN_DEBUG_MODE}
+      - API_MONGODBNAME=${MONGO_DB_NAME}
+      - API_MONGODBURL=mongodb://${MONGO_DB_USER}:${MONGO_DB_PSWD}@mongo:27017/${MONGO_DB_NAME}
+    depends_on:
+      - mongo
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.api.rule=Host(`localhost`)"
+
+  mongo:
+    image: mongo
+    restart: always
+    container_name: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_ADMIN}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ADMIN_PSWD}
+    volumes:
+      - ./appdata/db:/data/db
+    labels:
+      - "traefik.enable=false"
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+outro exemplo traefik mongodb -https://qastack.com.br/programming/59264410/how-to-connect-to-traefik-tcp-services-with-tls-configuration-enabled
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Instalando NTP (Network Time Protocol  - Protocolo de Tempo para Redes)
+
+	sudo apt-get install ntp
+
+
+
+consultando links e delays 
+	ntpq -c pe
+	
+
+Setar nomes locais para DNS local
+
+	sudo vim /etc/hosts
+
+
+
+
+ iotagent-mqtt:
+    image: dojot/iotagent-mosca:v0.4.2
+    #depends_on:
+    #  - mosca-redis
+    #  - kafka
+    #  - data-broker
+    #  - auth
+    #  - ejbca
+    ports:
+      - 1883:1883
+      - 8883:8883
+    restart: always
+    environment:
+      DOJOT_MANAGEMENT_USER: 'iotagent-mqtt'
+      KAFKA_GROUP_ID: 'iotagent-mqtt-group'
+      ALLOW_UNSECURED_MODE: 'true'
+      MOSCA_TLS_DNS_LIST: '192.168.100.125'
+    logging:
+      driver: json-file
+      options:
+        max-size: 100m
+
+
+
+
+
+--Acertando a hora do sistem, precisamos definir a região correta
+
+	sudo tzselect-------(para descobrira a time zona correta) = America/Fortaleza
+	sudo timedatectl----(Consultar Timezone atual)
+	sudo timedatectl set-timezone [timezone]  (define timezone nova)
+	sudo timedatectl set-timezone America/Fortaleza (define timezone nova)
+	sudo timedatectl----(Consultar Timezone atual)
+	sudo timedatectl set-timezone Africa/Abidjan  (hora do UTC 00:00)
+
+sudo iptables -A INPUT -p tcp --dport 1883 -j ACCEPT
+
+--Definir nova timezone
+	sudo timedatectl set-timezone America/Fortaleza
+
+	sudo timedatectl set-timezone Asia/Kabul
+
+	
+--Modificando arquivo NTP
+	sudo vim /etc/ntp.conf
+	sudo service ntp restart  (reiniciar o servico)
+
+
+--Prefeituras de Mariana MG e Brumadinho MG
+
+	https://www.mariana.mg.gov.br/
+	https://brumadinho.mg.gov.br/
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
+Configurando atraso de propagação de 25ms entre VM´s para simular trafego
+
+Udia-> Brumadinho = 25ms 
+Udia-> Mariana = 25ms 
+
+Brumadinho->Udia = 25ms
+Mariana = 25ms
+
+URL= https://www.paulocollares.com.br/infraestrutura/usando-o-tc-traffic-control-para-simular-degradacao-e-problemas-de-rede-no-linux/
+
+--Removendo qualquer regra que exista na interface
+
+	tc qdisc del root dev ens33  (VM-Udia-Dojot)
+	tc qdisc del root dev ens33  (VM-Mariana-mongodb)
+	tc qdisc del root dev ens33  (VM-Brumadinho-mongodb)
+	tc qdisc del root dev ens33  (VM-Canada-mongodb)
+
+--Inicia Criação de regras para determinada interface
+
+	sudo tc qdisc add dev ens33  root netem
+	sudo tc qdisc add dev enp2s0  root netem
+
+--Seta atraso na entrega de pacotes
+
+	sudo tc qdisc change dev ens33 root netem delay 25ms
+	sudo tc qdisc change dev enp2s0 root netem delay 25ms
+
+
+
+--configuração atraso variavel na interface de rede
+	
+	sudo tc qdisc add dev ens33  root netem   (inicia criação de regras na interface)
+	sudo tc qdisc change dev ens33 root netem delay 25ms 10ms 25%   (define delay =100mms, Variação randomica =10ms Valor correlato= 25% )
+
+	sudo tc qdisc change dev ens33 root netem delay 25ms 30ms distribution normal
+	sudo tc qdisc change dev ens33 root netem delay 25ms 10ms distribution normal
+
+	sudo tc qdisc change dev ens33 root netem delay 25ms 10ms distribution brumadinho
+	sudo tc qdisc change dev ens33 root netem delay 25ms 10ms distribution mariana
+
+	sudo tc qdisc change dev ens33 root netem delay 25ms 10ms distribution paretonormal
+
+
+
+
+	sudo cp /home/mongodb1/compartilhamento-brumadinho/50porcento/brumadinho_50_porcento.dist /usr/lib/tc/brumadinho_50_porcento.dist
+	sudo cp /home/mongodb2/compartilhamento-mariana/50porcento/mariana_50_porcento.dist /usr/lib/tc/mariana_50_porcento.dist
+
+
+--criando container para VM-MARIANA-MONGODB
+
+	sudo docker run --name mongodb5 --net dojot_colantoni-overlay -d  -v mongodb-volume5:/data/db mongo mongod --port 27017  --replSet colantoni
+	sudo docker run --name mongodb6 --net dojot_colantoni-overlay -d  -v mongodb-volume6:/data/db mongo mongod --port 27017  --replSet colantoni
+
+
+	sudo docker run --name mongodb7 --net dojot_colantoni-overlay -d  -v mongodb-volume7:/data/db mongo mongod --port 27017  --replSet colantoni
+
+
+--Matendno tunel SSH vivo msm sem atividade na janela
+
+	watch -n1 60 echo "wiiiii"
+
+--definir numero de pacotes no ping
+	ping brumadinho -c 4095 (dispara 4095 pings)
+
+--salvar resultado do ping em um arquivo
+
+	ping -c 4096 brumadinho.mg.gov.br | tee ~/ping_brumadinho.log
+	ping -c 4096 mariana.mg.gov.br | tee ~/ping_mariana.log
+
+--24 horas de ping 
+	ping -c 95000 brumadinho.mg.gov.br | tee ~/ping_brumadinho_24h.log
+	ping -c 95000 mariana.mg.gov.br | tee ~/ping_mariana_24h.log
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
+
+	
+--Criando script para enviar mensagens mqtt
+
+	mkdir scripts 
+	cd scritps
+	sudo vim temperatura_mqtt.sh
+	
+
+
+-------------------------------------------------------------------------------------------------------------
+#Exemplo shell scritp 
+
+
+
+#!/bin/bash
+# set n to 1
+n=1
+
+# continue until $n equals 5
+while [ $n -le 5 ]
+do
+	echo "Welcome $n times."
+	n=$(( n+1 ))	 # increments $n
+done
+
+-------------------------------------------------------------------------------------------------------------
+
+#novo 15-09-2021 - testando funcao rondomicas
+
+
+#!/bin/bash
+# set n to 1
+n=1
+m=1
+#time='date +%s'
+DATE=`date +%s`
+
+# continue until $n equals 5
+while [ $n -le 10 ]
+do
+        #echo "Temperatura: $n ."
+        #n=$(( n+1 ))    # increments $n
+
+        #echo "Umidade: $n ."
+        #m=$(( m+1 ))    # increments $n
+
+        echo "Valor Randomico Temperatura: " $((n+RANDOM %1000))
+        echo "Valor Randomico Umidade: " $((m+RANDOM %2))
+
+        DATE=`date +%s`   #atualizando a hora constantemente
+        echo "Time: " $DATE
+        echo "------------------------------------------------------------"
+done
+
+
+-------------------------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------------------------
+
+#novo 15-09-2021 - Disparando MQTT infinito
+
+
+
+#!/bin/bash
+# set n to 1
+n=30  #temperatura
+m=40  #umidade
+DATE=`date +%s`  #tempo
+rodar=1
+
+# Rodando infinito ate mandar parar
+while [ $rodar -le 5 ]
+do
+    
+	'
+        echo "Valor Randomico Temperatura: " $n = $((n+RANDOM %1000))
+        echo "Valor Randomico Umidade: " $m= $((m+RANDOM %2))
+        DATE=`date +%s`   #atualizando a hora constantemente
+
+	mosquitto_pub -h 10.3.145.27 -p 1883 -t /admin/12e632/attrs -m '{"temperatura":$n,"umidade":$m,"tempo":$DATE}
+        echo "Tempo: " $DATE
+        echo "------------------------------------------------------------"
+done
+
+
+
+
+
+
+
+To generate in the range: {40,..,49}
+r=$(( $RANDOM % 10 + 40 )); echo $r
+
+#testeando
+t=$((t+RANDOM %0+120))
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------
+
+mosquitto_pub -h 10.3.145.27 -p 1883 -t /admin/12e632/attrs -m '{"temperatura":10,"umidade":99,"tempo":1631735131}'
+
+
+
+----------------------------------------------------------------
+dar permissão execução ao script
+sudo chmod +x Script.sh
+----------------------------------------------------------------------------------------------------------------------
+
+
+#teste
+
+#! /bin/bash
+
+while :; do
+        echo "Apert CTRL+C para Para a Execução";
+mosquitto_pub -h 10.3.145.27 -p 1883 -t /admin/12e632/attrs -m '{"temperatura":10,"umidade":99,"tempo":1631735131}'
+	echo "Temperatura = 10";
+mosquitto_pub -h 10.3.145.27 -p 1883 -t /admin/12e632/attrs -m '{"temperatura":20,"umidade":89,"tempo":1631735132}'
+	echo "Temperatura = 20";
+mosquitto_pub -h 10.3.145.27 -p 1883 -t /admin/12e632/attrs -m '{"temperatura":30,"umidade":79,"tempo":1631735133}'
+	echo "Temperatura = 30";
+mosquitto_pub -h 10.3.145.27 -p 1883 -t /admin/12e632/attrs -m '{"temperatura":40,"umidade":69,"tempo":1631735134}'
+	echo "Temperatura = 40";
+mosquitto_pub -h 10.3.145.27 -p 1883 -t /admin/12e632/attrs -m '{"temperatura":50,"umidade":59,"tempo":1631735135}'
+	echo "Temperatura = 50";
+
+done
+----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+#! /bin/bash
+
+while :; do
+        echo "Apert CTRL+C para Para a Execução";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 10}'
+	echo "Temperatura = 10";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 20}'
+	echo "Temperatura = 20";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 30}'
+	echo "Temperatura = 30";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 40}'
+	echo "Temperatura = 40";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 50}'
+	echo "Temperatura = 50";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 60}'
+	echo "Temperatura = 60";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 70}'
+	echo "Temperatura = 70";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 80}'
+	echo "Temperatura = 80";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 90}'
+	echo "Temperatura = 90";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 100}'
+	echo "Temperatura = 100";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 90}'
+	echo "Temperatura = 90";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 80}'
+	echo "Temperatura = 80";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 70}'
+	echo "Temperatura = 70";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 60}'
+	echo "Temperatura = 60";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 50}'
+	echo "Temperatura = 50";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 40}'
+	echo "Temperatura = 40";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 30}'
+	echo "Temperatura = 30";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 20}'
+	echo "Temperatura = 20";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/ee9c71/attrs -m '{"temperatura": 10}'
+	echo "Temperatura = 10";
+
+done
+
+-------------------------------------------------------------------------------------------------------------
+#! /bin/bash
+
+	
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 10}'
+echo "Temperatura = 10";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 10.1}'
+echo "Temperatura = 10.1";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 10.2}'
+echo "Temperatura = 10.2";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 40}'
+echo "Temperatura = 40";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 50}'
+echo "Temperatura = 50";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 60}'
+echo "Temperatura = 60";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 70}'
+echo "Temperatura = 70";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 80}'
+echo "Temperatura = 80";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 90}'
+echo "Temperatura = 90";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 100}'
+echo "Temperatura = 100";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 90}'
+echo "Temperatura = 90";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 80}'
+echo "Temperatura = 80";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 70}'
+echo "Temperatura = 70";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 60}'
+echo "Temperatura = 60";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 50}'
+echo "Temperatura = 50";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 40}'
+echo "Temperatura = 40";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 30}'
+echo "Temperatura = 30";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 20}'
+echo "Temperatura = 20";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura": 10}'
+echo "Temperatura = 10";
+
+done
+
+
+--------------------------------------------------------------------------------------------------------------
+#! /bin/bash
+while :; do
+        echo "Apert CTRL+C para Para a Execução";
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":0,"umidade":1}'
+echo "Temperatura =0  Umidade =1";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":10,"umidade":11}'
+echo "Temperatura =10  Umidade =11";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":20,"umidade":22}'
+echo "Temperatura =20  Umidade =22";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":30,"umidade":33}'
+echo "Temperatura =30  Umidade =33";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":40,"umidade":44}'
+echo "Temperatura =40  Umidade =44";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":50,"umidade":55}'
+echo "Temperatura =50  Umidade =55";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":60,"umidade":66}'
+echo "Temperatura =60  Umidade =66";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":70,"umidade":77}'
+echo "Temperatura =70  Umidade =77";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":80,"umidade":88}'
+echo "Temperatura =80  Umidade =88";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":90,"umidade":99}'
+echo "Temperatura =90  Umidade =99";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":100,"umidade":1}'
+echo "Temperatura =100  Umidade =1";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":90,"umidade":11}'
+echo "Temperatura =90  Umidade =11";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":80,"umidade":22}'
+echo "Temperatura =80  Umidade =22";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":70,"umidade":33}'
+echo "Temperatura =70  Umidade =33";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":60,"umidade":44}'
+echo "Temperatura =60  Umidade =44";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":50,"umidade":55}'
+echo "Temperatura =50  Umidade =55";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":40,"umidade":66}'
+echo "Temperatura =40  Umidade =66";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":30,"umidade":77}'
+echo "Temperatura =30  Umidade =77";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":20,"umidade":88}'
+echo "Temperatura =20  Umidade =88";sleep 5;
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":10,"umidade":99}'
+echo "Temperatura =10  Umidade =99";sleep 5;
+done
+
+
+
+#! /bin/bash
+while :; do
+        echo "Apert CTRL+C para Para a Execução";
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":0,"umidade":1}'
+echo "Temperatura =0  Umidade =1";sleep 5;        
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":10,"umidade":11}'
+echo "Temperatura =10  Umidade =11";sleep 5;     
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":20,"umidade":22}'
+echo "Temperatura =20  Umidade =22";sleep 5;      
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":30,"umidade":33}'
+echo "Temperatura =30  Umidade =33";sleep 5;     
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":40,"umidade":44}'
+echo "Temperatura =40  Umidade =44";sleep 5;      
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":50,"umidade":55}'
+echo "Temperatura =50  Umidade =55";sleep 5;    
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":60,"umidade":66}'
+echo "Temperatura =60  Umidade =66";sleep 5;      
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":70,"umidade":77}'
+echo "Temperatura =70  Umidade =77";sleep 5;      
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":80,"umidade":88}'
+echo "Temperatura =80  Umidade =88";sleep 5;      
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":90,"umidade":99}'
+echo "Temperatura =90  Umidade =99";sleep 5;       
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":100,"umidade":1}'
+echo "Temperatura =100  Umidade =1";sleep 5;      
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":90,"umidade":11}'
+echo "Temperatura =90  Umidade =11";sleep 5;       
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":80,"umidade":22}'
+echo "Temperatura =80  Umidade =22";sleep 5;      
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":70,"umidade":33}'
+echo "Temperatura =70  Umidade =33";sleep 5;      
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":60,"umidade":44}'
+echo "Temperatura =60  Umidade =44";sleep 5;       
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":50,"umidade":55}'
+echo "Temperatura =50  Umidade =55";sleep 5;      
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":40,"umidade":66}'
+echo "Temperatura =40  Umidade =66";sleep 5;      
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":30,"umidade":77}'
+echo "Temperatura =30  Umidade =77";sleep 5;      
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":20,"umidade":88}'
+echo "Temperatura =20  Umidade =88";sleep 5;  
+mosquitto_pub -h 10.3.145.7 -p 1883 -t /admin/b9c5c5/attrs -m '{"temperatura":10,"umidade":99}'
+echo "Temperatura =10  Umidade =99";sleep 5;
+done
+
+
+mosquitto_pub -h 10.3.145.27 -p 1883 -t /admin/12e632/attrs -m '{"temperatura":10,"umidade":99}'
+
+
+---------------------------------------------------------------------------------------------------------------
+
+
+--Criando um usuario para monitoramento do Mongodb
+
+> use admin
+> db.createUser({"user":"mongodb_exporter","pwd":"mongodbcolantoni", roles:[{role:"clusterMonitor",db:"admin"},{role:"read",db:"device_history"}]})
+
+
+
+
+
+mosquitto_pub -h 192.168.0.168 -p 1883 -t /admin/ebc035/attrs -m '{"temperatura":10,"umidade":99}'
+echo "Temperatura =10  Umidade =99";sleep 5;
+
+
+
+
+
+
+
+teste
+
+mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/88528e/attrs -m '{"temperatura":22,"umidade":44}'
+
+{"temperature":10.5,"pressure":770}
+
+------------------------------------------------------------------------------------------------------------------
+
+
+
+
+--dando permissao ao arquivo criado
+
+	sudo chmod -x temperatura_mqtt.sh
+	sudo chmod -x dispara_mqtt_88528e.sh
+
+
+
+
+
+scripts em C - https://williamcanin.me/blog/arquivos-de-execucao-no-linux/
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+--Compartilhamento de pastas entre LINUX  e Ru-Windwons
+
+
+--Crie um diretorio
+	mkdir /home/dojot/compartilhamento
+	mkdir /home/mongodb1/compartilhamento
+	mkdir /home/mongodb2/compartilhamento
+--Mude as permissoes do diretorio
+	sudo chmod 777 /home/dojot/compartilhamento
+	sudo chmod 777 /home/mongodb1/compartilhamento
+	sudo chmod 777 /home/mongodb2/compartilhamento
+	
+--instalar samba
+	sudo apt-get install samba
+--adicionar ao final do arquivo 
+	sudo vim  /etc/samba/smb.conf
+
+
+--vm-udia-dojot
+[publico]
+path = /home/dojot/compartilhamento
+public = yes
+writable = yes
+comment = smb share
+printable = no
+guest ok = yes
+
+
+
+--vm-brumadinho-mongodb
+[publico]
+path = /home/mongodb1/compartilhamento
+public = yes
+writable = yes
+comment = smb share
+printable = no
+guest ok = yes
+
+
+--vm-mariana-mongodb
+[publico]
+path = /home/mongodb2/compartilhamento
+public = yes
+writable = yes
+comment = smb share
+printable = no
+guest ok = yes
+
+
+
+--UBUNTU-FISICO PC-NVIDIA
+[publico]
+path = /home/ti/compartilhamento
+public = yes
+writable = yes
+comment = smb share
+printable = no
+guest ok = yes
+
+--Reinicie servido do samba
+	sudo /etc/init.d/samba restart
+
+--Na maquina Ru-Windows acesse pelo IP da maqiuna linux
+	\\192.168.100.125  (deve aparecer a pasta public )
+	\\192.168.100.204
+
+
+rs.add("dojot_mongodb2_1:27017")
+rs.add("dojot_mongodb_arbitro_1")
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+ dmesg |grep eth
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+INstalando novo driver de rede
+
+-Apos adicionar a placa pelo VM-ware
+
+		 dmesg |grep eth
+
+-A saida ira relacionaro MAC a entrada EHTx
+
+
+	[    2.289653] e1000 0000:02:01.0 eth0: (PCI:66MHz:32-bit) 00:0c:29:58:57:2d
+	[    2.289659] e1000 0000:02:01.0 eth0: Intel(R) PRO/1000 Network Connection
+	[    2.712092] e1000 0000:02:06.0 eth1: (PCI:66MHz:32-bit) 00:0c:29:58:57:37
+	[    2.712096] e1000 0000:02:06.0 eth1: Intel(R) PRO/1000 Network Connection
+	[    2.713882] e1000 0000:02:06.0 ens38: renamed from eth1
+	[    2.716792] e1000 0000:02:01.0 ens33: renamed from eth0
+
+
+-arquivo de configuracao
+	sudo vim /etc/network/interfaces
+
+-adicione
+	# The primary network interface
+	auto ens33
+	iface ens33 inet dhcp
+
+auto ens38
+iface ens38 inet dhcp
+
+auto ens39
+iface ens38 inet dhcp
+
+- Subindo a placa
+	sudo ifconfig ens33 up
+
+-Para restaurar o endereco IP do DHCP
+
+	sudo dhclient ens38
+
+
+-Caso não peguei IP basta reiniciar
+
+
+
+
+
+---------------------------------------------------------------------------------------------------
+-INicinando docker swarm em um IP especifico
+
+	sudo docker swarm init --advertise-addr 192.168.0.157
+	sudo docker swarm init --advertise-addr ens33
+
+-
+
+
+
+
+
+
+
+
+
+
+
+
+sudo docker run --name mongodb3 --net dojot_colantoni-overlay --restart always  -d  -v mongodb-volume33:/data/db mongo mongod --port 27017  --replSet colantoni
+sudo docker run --name mongodb4 --net dojot_colantoni-overlay --restart always  -d  -v mongodb-volume4:/data/db mongo mongod --port 27017  --replSet colantoni
+
+
+sudo docker run --name mongodb5 --net dojot_colantoni-overlay --restart always  -d  -v mongodb-volume5:/data/db  mongo mongod --port 27017  --replSet colantoni
+sudo docker run --name mongodb6 --net dojot_colantoni-overlay --restart always  -d  -v mongodb-volume6:/data/db mongo mongod --port 27017  --replSet colantoni
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Criar container mongodb  - rapido Com horario ok
+
+sudo docker run --name mongodb5 --net dojot_colantoni-overlay --restart always  -d  -v mongodb-volume5:/data/db -v /etc/localtime:/etc/localtime:ro  mongo mongod --port 27017  --replSet colantoni
+
+
+
+
+sudo docker run --name mongodb3 --net dojot_colantoni-overlay --restart always  -d  -v mongodb-volume33:/data/db -v /etc/localtime:/etc/localtime:ro mongo mongod --port 27017  --replSet colantoni
+sudo docker run --name mongodb4 --net dojot_colantoni-overlay --restart always  -d  -v mongodb-volume4:/data/db -v /etc/localtime:/etc/localtime:ro mongo mongod --port 27017  --replSet colantoni
+
+
+sudo docker run --name mongodb5 --net dojot_colantoni-overlay --restart always  -d  -v mongodb-volume5:/data/db -v /etc/localtime:/etc/localtime:ro  mongo mongod --port 27017  --replSet colantoni
+sudo docker run --name mongodb6 --net dojot_colantoni-overlay --restart always  -d  -v mongodb-volume6:/data/db -v /etc/localtime:/etc/localtime:ro mongo mongod --port 27017  --replSet colantoni
+
+
+cfg = rs.conf()
+  	cfg.members[0].priority = 5  
+  	cfg.members[1].priority = 0  
+	cfg.members[2].priority = 3 
+	cfg.members[3].priority = 2 
+	cfg.members[4].priority = 2 
+	cfg.members[5].priority = 2 
+	cfg.members[6].priority = 2 
+	cfg.members[7].priority = 2
+	
+rs.reconfig(cfg, {force: true})
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Delaying only some traffic
+
+Here is a simple example that only controls traffic to one IP address.
+
+ sudo tc qdisc add dev ens33 root handle 1: prio
+ sudo tc qdisc add dev ens33 parent 1:3 handle 30: \ tbf rate 20kbit buffer 1600 limit  3000
+ sudo tc qdisc add dev ens33 parent 30:1 handle 31: \ netem delay 12.5ms 5ms distribution mariana_50_porcento
+ sudo tc filter add dev ens33 protocol ip parent 1:0 prio 3 u32 \ match ip dst 192.168.0.178/32 flowid 1:3
+
+The commands makes a simple priority queueing discipline, then a TBF is added to do rate control, then attaches a basic netem. Finally, a filter classifies all packets going to 65.172.181.4 as being priority 3. For more info on traffic classification see LARTC -- filters
+
+
+
+
+----------------------------------------------------------------------------------------REDE UFU
+
+DOJOT :192.168.0.168
+BRUMARINHO:192.168.0.162
+MARAIANA: 192.168.0.178
+
+--------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+
+
+Arbitro - 291f499b66e2
+Mongo 1 - 299570856de2
+Mongo 2 - 9febe4d18691
+
+sudo tc qdisc del root dev ens33  
+sudo tc qdisc add dev ens33  root netem   
+sudo tc qdisc change dev ens33 root netem delay 12.5ms 5ms distribution brumadinho_50_porcento
+
+sudo tc qdisc del root dev lo
+sudo tc qdisc add dev lo root netem   
+sudo tc qdisc change dev lo root netem delay 12.5ms 5ms distribution brumadinho_50_porcento
+
+
+--------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+
+
+
+--Definiindo replicação igual para todos os nos do cluster
+-Va no PRimary shell mongo
+	
+	db.adminCommand( { setParameter: 1, mirrorReads: { samplingRate: 1.0 } } )
+
+
+------------------------------------------------------------------------------------------------------------------
+--SQL MONGODB 
+
+-CONTAR O TOTAL DE REGISTROS DE UMA COLECAO
+
+	db.admin_b9c5c5.find({ checked: { $exists : true } }).count()
+	db.admin_b9c5c5.count() 
+
+-- montando consulta para retornar somente temperatura
+	db.NomeColeção.find().sort({nomeAtributo:1, nomeOutroAtributo:1,…})
+	db.admin_254b97.find().sort({temperatura:1,umidade:1,tempo:1}).limit(5)
+
+
+	
+--ok
+	 db.admin_254b97.find({},{'attr':1,'value':1,'ts':1})
+
+--Retorna os valores disntintos de um atributo
+	db.NomeColeção.distinct('nome do atributo')
+	db.admin_254b97.distinct('attr')
+	db.admin_254b97.distinct('attr','device')
+
+--SQL para mongod
+	-SQL
+		SELECT nome, email 
+		FROM alunos 
+	-Mongo
+		db.alunos.find({},{ nome: 1, email: 1, _id: 0 })  
+
+	-SQL 
+		select ts, attr, value, value
+		from admin_254b97
+		group by ts
+	- MOngo
+		db.admin_254b97.find({},{id:1, temperatura:1, umidade:1, tempo:1, ISODate:1})
+		db.admin_254b97.find({ },{"attr": 1,"value": 1,"value": 1,"ts": 1}).limit(5);
+		db.admin_254b97.find( ,{ts:1,attr:1,value:1,value:1})
+
+
+	-SQL 
+		select ts,count(*)
+		from admin_254b97
+		group by ts
+	- MOngo
+		db.admin_254b97.group({"key":{"ts": true},"initial": {"countstar":0},"reduce":function(obj,prev){if(obj.*!= null )if(obj.*instanceof)prev.count*+= obj.*.length;else prev.count*++;},"finalize":function(prev){},"cond": {}});
+
+		
+exemplo
+	SELECT COUNT(*) 
+	FROM match_table
+	WHERE (home_team_api_id=9991 AND home_team_goal > away_team_goal) OR (away_team_api_id=9991 AND away_team_goal > home_team_goal);
+	
+	db.match_table.find({"$or":[{"$and":[{home_team_api_id:9991},{"home_team_goal":{"$gt":"away_team_goal"}}]},{"$and":[{"away_team_api_id":9991},{"away_team_goal":{"$gt":"home_team_goal"}}]}] }).count()
+	
+	db.admin_254b97.find({"ts":"ts"}).count().limit(5)
+
+
+
+
+
+-----------------------------------------
+ var query = {borough:'Bronx'}
+> db.restaturantes.count(query)
+
+funfa brutal em
+var query = {value:'23'}
+db.admin_254b97.count(query)
+
+-----------------------------------------
+
+
+exemplo
+	db.Request.aggregate([ {"$group" : {_id:"$source", count:{$sum:1}}} ])
+	
+--Agrupa o campo TS e realiza contagem de quantos tem  (ok)
+	db.admin_254b97.aggregate([ {"$group" : {_id:"$ts", count:{$sum:1}}} ])
+
+	db.admin_254b97.aggregate([ {"$group":{_id:{ts:"$ts",Value:"$value"},count:{$sum:1}}}])
+
+
+
+
+SQL que resolve 
+	
+		select ts, 
+			case when attr ='temperatura' then value end  as temperatura,
+			case when attr ='umidade' then value end  as umidade ,
+			case when attr ='tempo' then value end  as tempo				
+		from admin_254b97
+		group by ts
+
+
+
+---------------------------------------------------------------------------------------
+Veja uma lista dos operadores de comparação no SQL e seus equivalentes no Mongo.
+
+ 
+
+     > - Maior que. O equivalente no Mongo é o operador$ gt
+     < - Menor que. O equivalente no Mongo é o operador$ lt
+    <> - Diferente de. O equivalente no Mongo é o operador $nte
+     = - Igual. No Mongo, é o operador $eq
+    <= - Menor ou igual. No Mongo é o operador $lte
+    >= Maior ou igual. No Mongo é o operador $gte
+
+---------------------------------------------------------------------------------------
+
+
+
+--aCESSANDO O POSTGRES CONTAINER
+
+	sudo docker exec -ti --user root id_container /bin/bash
+
+	su postgres
+	psql
+-- agora vamos listas bancos de dados
+	\l
+--Conectando ao bando de dados desejado
+	\c nome_do_banco //conecta com usuário atual
+--LIstando tabelas do banco de dados
+	\d
+	\dt
+--Sair do postgre shell
+	\q
+
+
+
+
+
+
+MOngodb (indo bem, estou perto)
+
+--ok
+db.admin_254b97.aggregate( [
+  {
+    $project:
+      {
+        "ts" : 1,_id:0,
+        "Temperatura" :
+        {
+          $switch:
+            {
+              branches: [
+                {
+                  case: { $gte : [ { temperatura : "$attr" }, 'temperatura' ] },
+                  then: "$value"
+                }],
+              default: "problema"
+            } 
+	},       
+	"umidade" :
+        {
+          $switch:
+            {
+              branches: [
+                {
+                  case: { $eq : [ { 'attr' : "$umidade" }, 'umidade' ] },
+                  then: "$value"
+                }],
+              default: "problema"
+            }
+         },
+	"tempo" :
+        {
+          $switch:
+            {
+              branches: [
+                {
+                  case: { $eq : [ { attr : "$tempo" }, 'tempo' ] },
+                  then: "$value"
+                }],
+              default: "problema"
+            }
+         }
+      }
+   }
+] )
+
+
+
+db.admin_254b97.aggregate( [
+  {
+    $project:
+      {
+        "ts" : 1,_id:0,
+        "Valor" :
+        {
+$switch: { branches: [	{ case: { $gte : [ { attr : "$attr" }, 'temperatura' ] }, then: "$valeu" },
+{ case: { $lt : [ { attr : "$attr" }, 'umidade' ] }, default: "problema" }}
+      }
+   }
+] )
+
+
+--testando agora
+
+db.admin_254b97.aggregate( [
+  {
+    $project:
+      {
+        "ts" : 1,_id:0,
+        "Temperatura" :
+        {
+          $switch:
+            {
+              branches: [
+                {
+                  case: { $eq : [ { $avg : "$attr" }, 'temperatura' ]  },
+                  then: "$value"
+                }],
+              default: "problema"
+            } 
+	},       
+	"umidade" :
+        {
+          $switch:
+            {
+              branches: [
+                {
+                  case: { $eq : [ {  $avg : "$attr" }, 'umidade' ] },
+                  then: "$value"
+                }],
+              default: "problema"
+            }
+         },
+	"tempo" :
+        {
+          $switch:
+            {
+              branches: [
+                {
+                  case: { $eq : [ {  $avg : "$attr" }, 'tempo' ] },
+                  then: "$value"
+                }],
+              default: "problema"
+            }
+         }
+      }
+   }
+] )
+
+
+
+
+
+
+
+
+
+
+SQL
+
+SELECT ts, count(*) as total from admin_254b97 GROUP BY ts
+
+Mongo
+
+db.admin_254b97.aggregate([{$group: {_id: "$ts", total: {$sum: 1}}}])
+
+db.admin_254b97.aggregate([{$group: {attr: "$attr", total: {$sum: 1}}}])
+
+
+
+---apagando um dado do mongodb
+
+	db.alunos.deleteMany( { status: 0 } ) 
+	db.admin_254b97.deleteMany({ attr: { $regex: /tempot/ } }) 
+
+
+
+
+
+
+
+-- Formato dos dados que eu preciso
+
+[14:05, 07/10/2021] Rodrigo Sanches Miani: 1, 34, 84, 1633626216, 1633626227, 11
+[14:05, 07/10/2021] Rodrigo Sanches Miani: Campo 1: ID
+[14:05, 07/10/2021] Rodrigo Sanches Miani: Campo 2: temperatura
+[14:05, 07/10/2021] Rodrigo Sanches Miani: Campo 3: umidade
+[14:05, 07/10/2021] Rodrigo Sanches Miani: Campo 4: tempo de envio da solicitação (unix time)
+[14:06, 07/10/2021] Rodrigo Sanches Miani: Campo 5: tempo de gravação da solicitação no mongo (unix time)
+[14:06, 07/10/2021] Rodrigo Sanches Miani: Campo 6: diferença entre o campo 4 e campo 5
+
+
+
+-----Criando uma nova coleção com os resultados
+
+SQL
+
+select id, nome, categoria, avaliacao into clientes_atualizado from clientes ORDER by categoria DESC avaliacao ASC 
+
+Mongo
+
+db.clientes.aggregate([{$project: {_id: 0, nome: 1, categoria: 1, avaliacao: 1}}, {$sort: {categoria: -1, avaliacao: 1}}, {$out: "clientes_atualizado}])
+
+
+
+
+
+----Agrupando resultados por tipo e condição
+
+SQL
+
+SELECT categoria, count(*) as total from clientes where avaliacao = 10 GROUP BY categoria
+select ts, count(*) as total from  admin_254b97 where ts = ISODate("2021-10-07T23:14:02.322Z") grop by ts
+
+Mongo
+
+db.clientes.aggregate([{$match: {avaliacao: 10}}, {$group: {_id: "$categoria", total: {$sum: 1}}}])
+db.admin_254b97.aggregate([{$match: {ts: ISODate("2021-10-07T23:14:02.322Z")}}, {$group: {_id: "$ts", total: {$sum: 1}}}])  --ok
+
+sem where =  db.admin_254b97.aggregate([{$match: {}}, {$group: {_id: "$ts", total: {$sum: 1}}}])  --ok
+
+
+testando 
+	db.admin_254b97.aggregate([{$match: {}}, {$group: {_id: "$ts", value: "$value",total: {$sum: 1}}}])
+
+
+
+
+--group by no python
+
+	Conta_NIS = csvPanda.groupby(['Data', 'UF', 'Municipio']).NIS.count()
+	Soma_Valor = csvPanda.groupby(['Data', 'UF', 'Municipio']).Valor.sum() 
+
+	Soma_Valor = csv_reader.groupby(['ts', 'value']).attr.count() 
+
+
+--INstalar python pandas no ubuntu
+	sudo apt-get install python-pandas
+
+
+
+----------------COndicional---------------------------
+ 	SQL
+ 		SELECT * FROM alunos WHERE nome like "%bins%" 
+	Mongo
+		db.alunos.find( { nome: { $regex: /bins/ } } ) 
+
+	SQL
+		select * from admin_254b97 where attr ilike "%temperatura%"
+	Mongo	
+		db.admin_254b97.find({ attr: { $regex: /temperatura/ } } ) 
+		db.admin_254b97.find({ attr: { $regex: /tempot/ } } )
+
+
+--Contar registros de acordo com uma condição
+	SQL
+		SELECT COUNT(*) FROM alunos WHERE idade > 40 
+	Mongo
+		db.alunos.count( { idade: { $gt: 40 } } )   
+
+
+
+
+--------------------------
+------------------------------------------------------------------------------------------------------------------
+
+EXPORT CSV mongodb
+
+	--entre dentro do container primeiro -> sudo docker exec -ti --user root b0419ddcf76e /bin/bash
+
+	mongoexport --host localhost --db dbname --collection name --type=csv --out text.csv --fields firstName,middleName,lastName
+
+	mongoexport --host localhost --db device_history --collection admin_254b97 --type=csv --out dados.csv -f device_id,attr,value,ts
+	mongoexport --host 172.19.0.28 --db device_history --collection admin_254b97 --type=csv --out dados.csv -f device_id,attr,value,ts
+	mongoexport --host 172.18.0.3 --db device_history --collection admin_254b97 --type=csv --out dados.csv -f device_id,attr,value,ts
+	mongoexport --host 172.19.0.31 --db device_history --collection admin_7a2166 --type=csv --out dados.csv -f device_id,attr,value,ts
+
+
+var myDate = new Date("2021-11-08T20:00:00Z");
+
+em seguida copie o arquivo criado (sai do container primeiro depois copie)
+
+
+	sudo docker cp df1a9af97da4:/dados.csv dados-brumadinho_ens_livre.csv
+	sudo docker cp 1d9b7f873e5b:/dados.csv dados_disparo_a_cada_1_segundo.csv
+	sudo docker cp 1d9b7f873e5b:/dados.csv dados_disparo_a_cada_2_minutos.csv
+	sudo docker cp 1d9b7f873e5b:/dados.csv dados_disparo_a_cada_30_segundos.csv
+	
+------------------------------------------------------------------------------------------------------------------
+
+
+
+sudo tc qdisc del root dev ens33  (remove qualquer regra que exista na interface)
+sudo tc qdisc add dev ens33  root netem   (inicia criação de regras na interface)
+sudo tc qdisc change dev ens33 root netem delay 12.5ms 5ms distribution brumadinho_50_porcento  
+
+
+--sequencia easy
+sudo tc qdisc add dev ens33  root netem
+sudo tc qdisc add dev ens38  root netem
+sudo tc qdisc change dev ens33 root netem delay 25ms 5ms distribution brumadinho
+sudo tc qdisc change dev ens38 root netem delay 25ms 5ms distribution brumadinho
+
+sudo tc qdisc change dev ens33 root netem delay 25ms 5ms distribution mariana
+sudo tc qdisc change dev ens38 root netem delay 25ms 5ms distribution mariana
+
+------------------------------------------------------------------------------------------------------------------
+
+
+1639756306386201900
+163975630804800000
+
+unix-time com 13 digitos
+
+date +%s%N | cut -b1-13
+
+
+
+
+------------------------------------------------------------------------------------------------------------------
+shell script novo funcionando ok
+
+
+
+#teste
+
+
+#! /bin/bash
+t=1
+u=2
+d=`date +%s`
+rodar=1
+
+
+while [ $rodar -le 5 ]
+do
+
+        echo "Apert CTRL+C para Para a Execução";
+        t=$((t+RANDOM %120))
+        u=$((u+RANDOM %100))
+        d=`date +%s`
+mosquitto_pub -h 10.3.145.27 -p 1883 -t /admin/12e632/attrs -m '{"temperatura":'$t',"umidade":'$u',"tempo":'$d'}'
+        echo "Temperatura = "$t" Umidade = "$u" tempo= "$d;
+        sleep 2
+        t=1
+        u=1
+        t=$((t+RANDOM %120))
+        u=$((u+RANDOM %100))
+        d=`date +%s`
+mosquitto_pub -h 10.3.145.27 -p 1883 -t /admin/12e632/attrs -m '{"temperatura":'$t',"umidade":'$u',"tempo":'$d'}'
+        echo "Temperatura = "$t" Umidade = "$u" tempo= "$d;
+        sleep 2
+        t=1
+        u=1
+        t=$((t+RANDOM %120))
+        u=$((u+RANDOM %100))
+        d=`date +%s`
+mosquitto_pub -h 10.3.145.27 -p 1883 -t /admin/12e632/attrs -m '{"temperatura":'$t',"umidade":'$u',"tempo":'$d'}'
+        echo "Temperatura = "$t" Umidade = "$u" tempo= "$d;
+        sleep 2
+        t=1
+        u=1
+        t=$((t+RANDOM %120))
+        u=$((u+RANDOM %100))
+        d=`date +%s`
+mosquitto_pub -h 10.3.145.27 -p 1883 -t /admin/12e632/attrs -m '{"temperatura":'$t',"umidade":'$u',"tempo":'$d'}'
+        echo "Temperatura = "$t" Umidade = "$u" tempo= "$d;
+        sleep 2
+        t=1
+        u=1
+        t=$((t+RANDOM %120))
+        u=$((u+RANDOM %100))
+        d=`date +%s`
+mosquitto_pub -h 10.3.145.27 -p 1883 -t /admin/12e632/attrs -m '{"temperatura":'$t',"umidade":'$u',"tempo":'$d'}'
+        echo "Temperatura = "$t" Umidade = "$u" tempo= "$d;
+        sleep 2
+        t=1
+        u=1
+        t=$((t+RANDOM %120))
+        u=$((u+RANDOM %100))
+        d=`date +%s`
+mosquitto_pub -h 10.3.145.27 -p 1883 -t /admin/12e632/attrs -m '{"temperatura":'$t',"umidade":'$u',"tempo":'$d'}'
+        echo "Temperatura = "$t" Umidade = "$u" tempo= "$d;
+        rodar=6
+
+done
+------------------------------------------------------------------------------------------------------------------
+
+
+auto ens33
+allow-hotplug eth1
+iface ens33 inet static
+    address 192.168.0.168
+    netmask 255.255.255.0
+    network 192.168.0.0
+    broadcast 192.168.0.255
+
+
+
+sudo vim /etc/hosts
+
+10.3.145.27  vm-udia-dojot
+10.3.145.6   vm-brumadinho-mongodb
+10.3.145.5   vm-mariana-mongodb
+
+192.168.0.107 vm-mariana-mongodb
+192.168.0.70 vm-udia-dojot
+
+
+10.10.100.133   vm-udia-dojot
+10.10.100.128   vm-brumadinho-mongodb
+10.10.100.130   vm-mariana-mongodb
+
+192.168.0.250 vm-udia-dojot
+
+
+--consultar todas as portas abertas
+
+sudo ss -tulpn
+sudo lsof -i -P -n | grep LISTEN	
+
+--porta especifica
+sudo lsof -i -P -n | grep 5583	
+sudo netstat -tulnp | grep 1883
+
+--limpar tudo docker container
+sudo docker system prune -a
+
+
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+
+Arrumando data e hora 
+
+
+RUN echo "tzdata tzdata/Areas select America" > timezone.txt
+RUN echo "tzdata tzdata/Zones/America select Fortaleza" >> timezone.txt
+RUN debconf-set-selections timezone.txt
+RUN rm /etc/timezone
+RUN rm /etc/localtime
+RUN dpkg-reconfigure -f noninteractive tzdata
+
+
+APos a hora do sistema estar correta adiciona esta linha no volume do container dentro do arquivo docker-compose.yml
+volumes:
+      - /etc/localtime:/etc/localtime:ro   # <--Esa linha define o timezone
+
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+
+
+
+
+arquivo - docker-compose.yml (para criar apenas containers mongodb)
+
+version: '3.7'
+services:
+
+ mongodb3:
+    #image: dojot/mongo:3.2
+    image: mongo
+    restart: always
+    #restart: on-failure
+    user: "mongodb"
+    logging:
+      driver: json-file
+      options:
+        max-size: 20m
+        max-file: '5'
+    volumes:
+      - mongodb-volume3:/data/db
+      - mongodb-cfg-volume3:/data/configdb
+      - - /etc/localtime:/etc/localtime:ro  #esta linha define o timezone
+    environment:
+           MONGO_REPLICA_SET_NAME: colantoni
+    command: ["--replSet", "colantoni"]
+    networks:
+      - colantoni-overlay
+      - flowbroker
+      - default
+
+  mongodb4:
+    #image: dojot/mongo:3.2
+    image: mongo
+    restart: always
+    #restart: on-failure
+    user: "mongodb"
+    logging:
+      driver: json-file
+      options:
+        max-size: 20m
+        max-file: '5'
+    volumes:
+      - mongodb-volume4:/data/db
+      - mongodb-cfg-volume4:/data/configdb
+      - - /etc/localtime:/etc/localtime:ro  #esta linha define o timezone
+    environment:
+           MONGO_REPLICA_SET_NAME: colantoni
+    command: ["--replSet", "colantoni"]
+    networks:
+      - colantoni-overlay
+      - flowbroker
+      - default
+      
+
+volumes:
+  mongodb-volume3:
+  mongodb-cfg-volume3:
+  mongodb-volume4:
+  mongodb-cfg-volume4:
+
+
+#networks:
+  flowbroker:
+  colantoni-overlay:
+     driver: overlay
+
+
+-------------------------------------------------------------------------------------------------
+
+
+version: '3.7'
+services:
+
+ mongodb5:
+    #image: dojot/mongo:3.2
+    image: mongo
+    restart: always
+    #restart: on-failure
+    user: "mongodb"
+    logging:
+      driver: json-file
+      options:
+        max-size: 20m
+        max-file: '5'
+    volumes:
+      - mongodb-volume5:/data/db
+      - mongodb-cfg-volume5:/data/configdb
+      - - /etc/localtime:/etc/localtime:ro  #esta linha define o timezone
+    environment:
+           MONGO_REPLICA_SET_NAME: colantoni
+    command: ["--replSet", "colantoni"]
+    networks:
+      - colantoni-overlay
+      - flowbroker
+      - default
+
+  mongodb6:
+    #image: dojot/mongo:3.2
+    image: mongo
+    restart: always
+    #restart: on-failure
+    user: "mongodb"
+    logging:
+      driver: json-file
+      options:
+        max-size: 20m
+        max-file: '5'
+    volumes:
+      - mongodb-volume6:/data/db
+      - mongodb-cfg-volume6:/data/configdb
+      - - /etc/localtime:/etc/localtime:ro  #esta linha define o timezone
+    environment:
+           MONGO_REPLICA_SET_NAME: colantoni
+    command: ["--replSet", "colantoni"]
+    networks:
+      - colantoni-overlay
+      - flowbroker
+      - default
+      
+
+volumes:
+  mongodb-volume5:
+  mongodb-cfg-volume5:
+  mongodb-volume6:
+  mongodb-cfg-volume6:
+
+#networks:
+  flowbroker:
+  colantoni-overlay:
+     driver: overlay
+
+
+
+
+--Iserindo dados em uma nova colecao mongodb
+
+db.col.insert({"name":"mongodbwise"})
+db.col.insert({"name":"mongodbwise2"})
+db.col.insert({"name":"mongodbwise3"})
+db.col.insert({"name":"mongodbwise4"})
+db.col.insert({"name":"mongodbwise5"})
+
+
+--APagando todos os arquivos de uma colecao mongodb (deletando , limpando, excluindo,deletar, limpar, apagar)
+
+ db.col.remove({})  --col = nome da colecao
+ db.admin_7a2166.remove({})  (delete todos os dados da colecao)
+
+
+
+
+--criando container com time zone desejado
+
+services:
+  ubuntu-local:
+    image: ubuntu:16.04
+    restart: on-failure
+    command: python3 run_my_code.py
+    working_dir: /code
+    volumes:
+      - ./code:/code
+      - /etc/localtime:/etc/localtime:ro   # <--Esa linha define o timezone
+    environment:
+      - PYTHONUNBUFFERED=1
+
+
+
+mongodb:
+    #image: dojot/mongo:3.2
+    image: mongo
+    restart: always
+    #restart: on-failure
+    user: "mongodb"
+    logging:
+      driver: json-file
+      options:
+        max-size: 20m
+        max-file: '5'
+    volumes:
+      - mongodb-volume:/data/db
+      - mongodb-cfg-volume:/data/configdb
+      - /etc/localtime:/etc/localtime:ro
+   
+
+--------------------------------------------------------------------------------------------------------------
+--AUmentar o tamanho da memoria swap
+
+--consultar espaço disponivel em /dev/sda1
+	df - h
+
+--Criar um ficheiro Swap 
+	sudo fallocate -l 3G /swap.img
+	ls -lh /swap.img
+--Ativar o ficheior swap
+	sudo chmod 600 /swap.img
+--Definir o tamanho reservado como Swap
+	sudo mkswap /swap.img
+	sudo swapon /swap.img
+--Verificar nova memoria
+	sudo swapon --show
+--adidcionar a incialiação do sistema
+	echo '/swap.img none swap sw 0 0' | sudo tee -a /etc/fstab
+--COnfira com 	
+	htop
+
+--------------------------------------------------------------------------------------------------------------
+
+--Instalando biblioteca python more-itertools
+tente:
+	sudo apt-get update
+	sudo apt-get install python-pip
+	sudo pip install more-itertools
+ou:
+	sudo apt-get install python3-pip
+	sudo pip3 install more-itertools
+
+
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+--codigo python para ler um arquivo csv e remover as duplicatas------------------------------------
+
+	from more_itertools import unique_everseen
+	with open('dado_saida2.csv','r') as f, open('dado_saida3.csv','w') as out_file:
+    	out_file.writelines(unique_everseen(f))
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+volumes:
+     - /etc/localtime:/etc/localtime:ro
+
+
+time_string = "19/01/20 16:31:32.123"
+format_string = "%d/%m/%y %H:%M:%S.%f"
+date_object = datetime.strptime(time_string, format_string)
+print(date_object)
+
+
+
+
+
+
+
+
+
+import csv
+# importing datetime module
+import datetime
+import time
+import os, time
+
+
+os.environ['TZ'] = 'America/Fortaleza'
+time.tzset()
+
+with open('dados_14_10_2021.csv') as csv_file:
+
+    csv_reader = csv_file.readlines()
+    #transforma em lista de 3 elementos
+    arquivo = open('dado_saida.csv', 'w')
+    cont=0
+    col2 = 0
+    col3 = 0
+    col4 = 0
+    a =0
+    for x in csv_reader:
+        tamanho_texto=len(x);
+        dado=x[tamanho_texto-14:tamanho_texto-2] #pega somente hora registrada no mongodb
+        dado_ano=x[tamanho_texto-25:tamanho_texto-15] #pega somente a data do nmongodb (ano, mes , dia)
+        dado_completo=x[0:tamanho_texto-1] # x[tamanho_texto-49:tamanho_texto-26]
+        value=x[0:tamanho_texto-26]
+        lista = dado.split(':')
+        lista_ano = dado_ano.split('-')
+        lista_completo = dado_completo.split(',')
+        lista_value = value.split(',')
+        #print(lista_ano)
+        if(len(lista) ==3) :
+            (hora,minuto,sec) = lista
+            (ano, mes, dia) = lista_ano
+            (id_device, attr, value) = lista_value
+            #print(sec)
+            #print('tipo do segundo',type(sec))
+            #sec2 = sec
+            sec = (float(sec))
+               #sec2 = sec2.replace('.','')
+                #print(sec2)
+                #milisec = int(sec2)
+		#sec = milisec//1000
+                #mili =( milisec%1000)*1000
+                #print(sec, ':',mili)
+                time_string = (str(dia)+'/'+str(mes)+'/'+str(ano)+' '+str(hora)+':'+str(minuto)+':'+str(sec))  # "19/01/20 16:31:32.123"
+                print(time_string)
+                format_string = "%d/%m/%y %H:%M:%S.%f"
+                date_object = datetime.strptime(time_string, format_string)
+                print(date_object)
+                #print('segundo',sec)
+                #tempo = int(hora) + int(minuto) + int(sec)
+                #print(str(ano)+' '+str(mes)+' '+str(dia)+' '+str(hora)+' '+str(minuto)+' '+str(sec))
+                date_time = datetime.datetime(int(ano),int(mes),int(dia),int(hora),int(minuto),sec,milisec)
+                print(date_time)
+                #texto = str(hora)+':'+str(minuto)+ ':'+str(sec)
+                #unitx_time = date_time
+                unix_time =long( time.mktime(date_time.timetuple())*1000)
+                texto_value = str(id_device)+str(attr)+str(value)
+                #mostrando resultado na tela
+                a = unix_time
+                b = value
+                if( a == unix_time):
+                        cont = cont+1
+                        col1 = cont
+                        if(attr == 'temperatura'):
+                                col2 = value
+                        elif(attr == 'umidade'):
+                                col3 = value
+                        elif(attr == 'tempo'):
+                                col4 = value
+                        col5 = unix_time
+                col6 =(float(col5) - float(col4))
+                saida ='Id = '+str(col1)+' Temperatura = '+str(col2)+' Umidade = '+str(col3)+' Tempo = '+str(col4)+' Unix_time = '+str(col5)+' Discrepancia = '+str(col6)
+                print(saida)
+                #print(lista_completo,'UNIX TIme convertido = ',unix_time,)
+                #arquivo.write(str(lista_completo)+',UNIX Time ='+str(unix_time)+'\n')
+                arquivo.write(str(saida)+'\n')
+
+arquivo.close()
+csv_file.close()
+
+
+
+#monitorar trafego da interface de rede , contador de pacotes
+
+--instalar
+sudo apt install bmon
+
+--arquivo de configuração
+sudo vim /etc/darksats/inf.cfg
+
+--
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+--Em caso de falha no MQTT por LOST CONECTIONS, CONECTION REFUSED
+
+1° - Volte a no snapshotp - dojot ok - rede 10.10.100.x
+
+2° - Não ligue Mariana neim brumadinho
+
+3° - Mate os container do mongodb
+
+sudo docker container stop dojot_mongodb_1
+sudo docker container stop dojot_mongodb2_1
+sudo docker container stop dojot_mongodb_arbitro_1
+
+sudo docker container rm dojot_mongodb_1
+sudo docker container rm dojot_mongodb2_1
+sudo docker container rm dojot_mongodb_arbitro_1
+
+sudo docker volume prune 
+
+4° - Suba novamente os container do mongodb
+
+sudo docker-compose up -d
+
+5° - Agora entre no container dojot_mongodb_1 e inicie novamente o cluster
+
+sudo docker exec -ti --user root dojot_mongodb_1 /bin/bash
+mongo
+rs.initiate()
+rs.add ("dojot_mongodb_arbitro_1:27017")
+rs.add("dojot_mongodb2_1:27017")
+
+cfg = rs.conf()
+  	cfg.members[0].priority = 5   
+  	cfg.members[1].priority = 0   
+	cfg.members[2].priority = 3    
+rs.reconfig(cfg, {force: true})
+
+6° - Acesse o dojot pela interface web 
+
+http://10.10.100.133:8000
+
+7° - Caso venha logado, deslogue e logue novamente
+
+8° - crie um novo device
+
+9°- Faça um novo teste de envio MQTT
+
+sudo mosquitto_pub -t /admin/4c0935/attrs -m '{"data": 36}'
+
+caso precis instalar o mosquitto_pub = sudo apt-get install mosquitto-clients
+
+10° - Agradeça a DEUS por ter funcionado \0/
+
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+--Erro ao adicionar um node no docker swarm join-token worker
+
+Error response from daemon: rpc error: code = Unavailable desc = connection error: desc = "transport: authentication handshake failed: x509: certificate has expired or is not yet valid"
+
+--resovendo
+-na vm-dojot
+#sudo docker swarm ca | openssl x509 -noout -text | grep -E "Before|After"
+
+-na vm-brumadinho
+date +%Y%m%d -s "20180816"  (colocar a data d+1 que aparecer no Before)
+
+--Depois tente adicionar novamente
+#sudo docker swarm join --token SWMTKN-1-5wlmruu8q6oowvy26yk3bdm4sahp295h2i6frwaronwvhtdfdi-1pyy2zhi6juofvj667y1eveml 10.10.100.133:2377
+
+
+
+
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+
+cfg = rs.conf()
+  	cfg.members[0].priority = 5   (Container principal que quero como master)
+  	cfg.members[1].priority = 0   (arbitro)
+	cfg.members[2].priority = 3   (secundário qualquer mesmo no)
+	cfg.members[3].priority = 2   (secundario qualquer em outro no da rede)
+	cfg.members[4].priority = 2   (secundario qualquer em outro no da rede)
+	cfg.members[5].priority = 2   (secundario qualquer em outro no da rede)
+	cfg.members[6].priority = 2   (secundario qualquer em outro no da rede)
+rs.reconfig(cfg, {force: true})
+
+
+
+
+
+
+
+
+
+
+--Instalando leitor/capturar de pacotes
+
+--instalar
+sudo apt-get install bmon
+
+--iniciar registro formatado
+sudo bmon -p ens38 -o format
+
+--salvar o registro em um arquivo
+| tee ~/ping_brumadinho.log
+
+--export dados mongodb
+mongoexport --host 172.19.0.31 --db device_history --collection admin_7a2166 --type=csv --out dados.csv -f device_id,attr,value,ts
+
+-> sudo bmon -p ens38 -o format | tee ~/registro_1_por_segundo.log
+
+sudo bmon -p ens38 -o format | tee ~/registro_1_por_segundo.log
+sudo bmon -p ens38 -o format | tee ~/registro_mosquitto_1_a_cada_2mintos.log
+
+
+
+
+
+
+--Criar CSV personalizado para dispara no mosquitto_client mosquitto_pub
+
+
+./GERAR_DISPARADO.sh >> mosquitto_1_a_cada_segundo.sh 2>&1
+
+./GERAR_DISPARADO.sh >> mosquitto_1_a_cada_2mintos.sh 2>&1
+
+./GERAR_DISPARADO.sh >> mosquitto_1_a_cada_5mintos.sh 2>&1
+
+./GERAR_DISPARADO.sh >> mosquitto_1_a_cada_60_segundos.sh 2>&1
+
+./GERAR_DISPARADO.sh >> mosquitto_1_a_cada_30_segundos.sh 2>&1
+
+
+--configurando delay na interface de rede
+sudo tc qdisc del root dev ens38  (remove qualquer regra que exista na interface)
+sudo tc qdisc add dev ens38  root netem   (inicia criação de regras na interface)
+sudo tc qdisc change dev ens38 root netem delay 12.5ms 5ms distribution mariana 
+sudo tc qdisc change dev ens38 root netem delay 12.5ms 5ms distribution brumadinho 
+
+
+
+--DADANDO PERMISSOES GERIAS E DE EXECUCCAO
+
+sudo chmod 777 dispara_1_a_cada_1segundo.sh
+sudo chmod 777 dispara_1_a_cada_2mintos.sh
+sudo chmod 777 dispara_1_a_cada_5mintos.sh
+sudo chmod 777 dispara_1_a_cada_30_segundos.sh
+sudo chmod 777 dispara_1_a_cada_60_segundos.sh
+
+sudo chmod +x dispara_1_a_cada_1segundo.sh
+sudo chmod +x dispara_1_a_cada_2mintos.sh
+sudo chmod +x dispara_1_a_cada_5mintos.sh
+sudo chmod +x dispara_1_a_cada_30_segundos.sh
+sudo chmod +x dispara_1_a_cada_60_segundos.sh
+
+---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+--ferramenta de cptura de trafego de rede
+
+--instalacao
+sudo apt-get install tcptrack
+
+--Monitora o tráfego da interface eth0 (ens38)
+sudo tcptrack -i ens38
+
+--Monitora o tráfego de destino na porta 22 (SSH)
+sudo tcptrack -i ens38 dst port 1883
+sudo tcptrack -i ens38 dst port 1883 | tee ~/log_mosquitto_1_a_cada_segundo.log
+
+--Monitora apenas um host da rede interna, por exemplo: 
+sudo tcptrack -i ens38 src or dst 10.10.100.133
+
+
+
+--instalacao
+sudo apt-get install vnstat 
+sudo apt-get install vnstati
+
+--monitorar interface
+sudo vnstat -u -i ens38
+
+--ver statistica da interface
+vnstat -i ens38
+
+
+
+
+--instalacao 
+sudo apt install ifstat
+
+--iniciadno captura de trafego a cada 1 segundo
+ifstat -t -i ens38 1
+ifstat -t -i ens38 1 | tee ~/log_registro_1_por_segundo.log
+
+
+
+udia
+4903344,134907,52158,14970,16323
+
+
+Brumadinho
+814288,22395,8664,3627,2712
+
+Mariana
+820164,22084,8261,3654,2729
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+--reta final - thanks god \0/
+
+--pegar somente da porta 1883 esse
+sudo tcpdump -i any tcp port 1883 > log_1_udia.log
+sudo tcpdump -i any tcp port 1883 > log_1_brumadinho.log
+sudo tcpdump -i any tcp port 1883 > log_1_mariana.log
+
+--contar o numero de linhas de um arquivo
+wc -l nome_arquivo.log
+
+---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+
+
+sudo tcpdump -i any tcp port 1883 > log_1_udia_v2.log
+sudo tcpdump -i any tcp port 1883 > log_1_brumadinho_v2.log
+sudo tcpdump -i any tcp port 1883 > log_1_mariana_v2.log
+
+
+#Dados para plotar
+Udia=[4903344,134907,52158,14970,16323] ## 1s	30s	60s	120s	300s
+Brumadinho=[814288,22395,8664,3627,2712]
+Mariana=[820164,22084,8261,3654,2729]
+
+
+
+
+
+
+--Caputurar trafego de rede com registro de tempo
+# sudo apt-get install collectl
+
+--INiciar a caputra
+sudo collectl --top
+collectl -oT -i 1 (adiciona hora)
+
+sudo collectl -oT -i 1 |  tee ~/log_disparo_1_a_cada_segundo.log
+sudo collectl -oT -i 1 |  tee ~/log_disparo_1_a_cada_30_segundos.log
+sudo collectl -oT -i 1 |  tee ~/log_disparo_1_a_cada_60_segundos.log
+sudo collectl -oT -i 1 |  tee ~/log_disparo_1_a_cada_2_minutos.log
+sudo collectl -oT -i 1 |  tee ~/log_disparo_1_a_cada_5_minutos.log
+
+
+--novo 3 logs por vez (5 vezes)
+
+sudo collectl -oT -i 1 |  tee ~/log_1s_udia.log
+sudo collectl -oT -i 1 |  tee ~/log_1s_brumdinho.log
+sudo collectl -oT -i 1 |  tee ~/log_1s_mariana.log
+
+sudo collectl -oT -i 1 |  tee ~/log_30s_udia.log
+sudo collectl -oT -i 1 |  tee ~/log_30s_brumdinho.log
+sudo collectl -oT -i 1 |  tee ~/log_30s_mariana.log
+
+sudo collectl -oT -i 1 |  tee ~/log_60s_udia.log
+sudo collectl -oT -i 1 |  tee ~/log_60s_brumdinho.log
+sudo collectl -oT -i 1 |  tee ~/log_60s_mariana.log
+
+
+sudo collectl -oT -i 1 |  tee ~/log_2m_udia.log
+sudo collectl -oT -i 1 |  tee ~/log_2m_brumdinho.log
+sudo collectl -oT -i 1 |  tee ~/log_2m_mariana.log
+
+sudo collectl -oT -i 1 |  tee ~/log_5m_udia.log
+sudo collectl -oT -i 1 |  tee ~/log_5m_brumdinho.log
+sudo collectl -oT -i 1 |  tee ~/log_5m_mariana.log
+
+
+
+--export dados mongodb
+mongoexport --host 172.19.0.31 --db device_history --collection admin_70645f --type=csv --out dados.csv -f device_id,attr,value,ts
+
+
+2022-04-30
+
+
+mongoexport --host 172.19.0.31 --db device_history --collection admin_70645f --type=csv --out dados.csv -f device_id,attr,value,ts
+	sudo docker cp 1d9b7f873e5b:/dados.csv N3_disparo_a_cada_1_segundo.csv
+	sudo docker cp 1d9b7f873e5b:/dados.csv dados_disparo_a_cada_1_segundo.csv
+	sudo docker cp 1d9b7f873e5b:/dados.csv N3_dados_disparo_a_cada_2_minutos.csv
+	sudo docker cp 1d9b7f873e5b:/dados.csv dados_disparo_a_cada_30_segundos.csv
+	sudo docker cp 1d9b7f873e5b:/dados.csv N3_dados_disparo_a_cada_5_minutos.csv
+	sudo docker cp 1d9b7f873e5b:/dados.csv N3_dados_disparo_a_cada_60_segundos.csv
+
+
+
+
+sudo mosquitto_pub -h 10.10.100.133 -p 1883 -t /admin/511710/attrs -m '{"temperatura": 43}'
+
+sudo mosquitto_pub -h 10.3.145.30 -p 1883 -t /admin/511710/attrs -m '{"temperatura": 43}'
+
+
+
+
+
+sudo mosquitto_pub -h 10.3.145.27 -p 1883 -t /admin/2daa63/attrs -m '{"temperatura": 36}'
+
+sudo mosquitto_pub -t /admin/c3ff41/attrs -m '{"temperatura": 36}'
+
+sudo mosquitto_pub -t /admin/7a2166/attrs -m '{"data": "titia jane 2"}'
+
+
+sudo mosquitto_pub -h 192.168.0.70 -p 1883 -t /admin/254b97/attrs -m '{"temperatura": 36}'
+
+sudo mosquitto_pub -h 192.168.0.70 -p 1883 -t /admin/28d29f/attrs -m '{"data": "titia jane 3"}'
+
+
+sudo mosquitto_pub -h 192.168.0.70 -p 1883 -t /admin/264444/attrs -m '{"temperatura": 36,"data":'1479626031,1895,2435,928722,1063358,344,287,108806,307576,344,287,108806,304680,286,344,179725,171070,1402,1770,821076,985167,1773,1412,620469,1390693,345,275,105128,302252,273,345,177230,165944,2366,1775,613594,1273122,3870,5124,1669523,2185488,296,365,174976,193695,367,296,121659,293712}'
+
+
+--ok
+sudo mosquitto_pub -t /admin/264444/attrs -m '{"temperatura": 136,"umidade": 146,"data":"991479626031,1895,2435,928722,1063358,344,287,108806,307576,344,287,108806,304680,286,344,179725,171070,1402,1770,821076,985167,1773,1412,620469,1390693,345,275,105128,302252,273,345,177230,165944,2366,1775,613594,1273122,3870,5124,1669523,2185488,296,365,174976,193695,367,296,121659,293712"}'
+
+--ok
+sudo mosquitto_pub -t /admin/7a2166/attrs -m '{"data": "991479626031,1895,2435,928722,1063358,344,287,108806,307576,344,287,108806,304680,286,344,179725,171070,1402,1770,821076,985167,1773,1412,620469,1390693,345,275,105128,302252,273,345,177230,165944,2366,1775,613594,1273122,3870,5124,1669523,2185488,296,365,174976,193695,367,296,121659,293799"}'
+
+--ok mariana
+sudo mosquitto_pub -h 10.10.100.133 -p 1883 -t /admin/70645f/attrs -m '{"temperatura": 46,"umidade": 70,"tempo": 987654,"data": "331479626031,1895,2435,928722,1063358,344,287,108806,307576,344,287,108806,304680,286,344,179725,171070,1402,1770,821076,985167,1773,1412,620469,1390693,345,275,105128,302252,273,345,177230,165944,2366,1775,613594,1273122,3870,5124,1669523,2185488,296,365,174976,193695,367,296,121659,293733"}'
+
+
+--teste curto
+sudo mosquitto_pub -h 10.10.100.133 -p 1883 -t /admin/70645f/attrs -m '{"temperatura": 46,"umidade": 70,"tempo": 987654}'
+
+
+
+sudo iptables -A INPUT -p tcp --dport 1883 -j ACCEPT
+
+rs.add ("dojot_mongodb_arbitro_1:27017")
+rs.add("dojot_mongodb2_1:27017")
+rs.add("mongodb3:27017")
+rs.add("mongodb4:27017")
+rs.add("mongodb5:27017")
+rs.add("mongodb6:27017")
+
+
+
+
+sudo netstat -tulnp | grep 1883
+
+dojot_mongodb_1
+dojot_mongodb2_1
+dojot_mongodb_arbitro_1
+
+dojot_zookeeper_1
+dojot_kafka_1	
+dojot_iotagent-mqtt_1
+dojot_ejbca_1
+dojot_data-broker_1
+dojot_auth_1
+dojot_mosca-redis_1
+
+sudo docker container stop dojot_mongodb_1
+sudo docker container stop dojot_mongodb2_1
+sudo docker container stop dojot_mongodb_arbitro_1
+
+sudo docker rm dojot_mongodb_1
+sudo docker rm dojot_mongodb2_1
+sudo docker rm dojot_mongodb_arbitro_1
+
+--limpar tudo docker container
+sudo docker system prune -a
+
+---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+codigo PYthon
+
+#importa biblioteca para barra de progresso
+from ipywidgets import IntProgress
+
+#funcao barra de progresso
+f = IntProgress(min=0,max=10)
+display(f)
+
+
+for x in range(10)
+	f.value+=1
+
+------------------------------------------------
+#outra forma barra de progresso - top
+from tqdm import tqdm
+import time
+
+for i in tqdm(range(10)):
+	time.sleep(1)
+
+------------------------------------------------
+
+
+
+
+
+#criando arquivo de configuração do notebook jupyther
+jupyter notebook --generate-config
+
+veja o local do arquivo
+abra o arquivo
+
+procure por :  iopub_data_rate
+
+descomente a linha:  c.NotebookApp.iopub_data_rate_limit = 1000000  (aumente o numero de zeros)
+---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

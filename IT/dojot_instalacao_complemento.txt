@@ -1,0 +1,38 @@
+Cant connect to EJBCA server at http://ejbca:5583 
+
+ iotagent-mqtt:
+    image: dojot/iotagent-mosca:v0.4.2
+    #depends_on:
+    #  - mosca-redis  ----nao tem porta definida
+    #  - kafka        ----JMX_PORT: 1099
+    #  - data-broker  ----nao tem porta definida
+    #  - auth         ---- AUTH_KONG_URL: "http://apigw:8001" 
+    #  - ejbca        ----nao tem porta definida
+    ports:
+      - 1883:1883
+      - 8883:8883
+    restart: always
+    environment:
+      DOJOT_MANAGEMENT_USER: 'iotagent-mqtt'
+      KAFKA_GROUP_ID: 'iotagent-mqtt-group'
+      ALLOW_UNSECURED_MODE: 'true'
+      MOSCA_TLS_DNS_LIST: '192.168.100.125'
+    logging:
+      driver: json-file
+      options:
+        max-size: 100m
+
+
+ iotagent-lwm2m:
+ ports:
+      - 5683:5683/udp # configuration coap port
+      - 5684:5684/udp # configuration dtls port
+      - 5693:5693/udp # file server coap port
+      - 5694:5694/udp # file server dtls port
+
+
+
+Referencia - sudo mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/2ae3ab/attrs -m '{"temperatura": 36.5}'
+
+
+sudo mosquitto_pub -h 192.168.100.125 -p 1883 -t /admin/f10bd2/attrs -m '{"temperatura": 36.5}'
